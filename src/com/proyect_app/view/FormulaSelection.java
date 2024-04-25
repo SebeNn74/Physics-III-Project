@@ -1,16 +1,20 @@
 package com.proyect_app.view;
 
 import javax.swing.*;
+
+import com.proyect_app.view.components.CircleButton;
+import com.proyect_app.view.components.RoundedPanel;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class FormulaSelection extends JPanel {
     private JTextArea infoFormula;
-    private JPanel auxPanel;
-    private JButton gravityJButton;
-    private JButton volumeJButton;
-    private JButton pushJButton;
-    private JButton densityJButton;
+    private RoundedPanel auxPanel;
+    private CircleButton gravityJButton;
+    private CircleButton volumeJButton;
+    private CircleButton pushJButton;
+    private CircleButton densityJButton;
     private JLabel gravityJLabel;
     private JLabel volumeJLabel;
     private JLabel pushJLabel;
@@ -36,9 +40,9 @@ public class FormulaSelection extends JPanel {
     }
 
     public void createAuxPanel() {
-        auxPanel = new JPanel();
+        auxPanel = new RoundedPanel(35,35);
         auxPanel.setBounds(120, 70, 450, 330);
-        auxPanel.setBackground(Color.white);
+        auxPanel.setBackground(new Color(163, 206, 241));
         this.add(auxPanel);
     }
 
@@ -50,15 +54,16 @@ public class FormulaSelection extends JPanel {
     public void createJTextAreaInfoFormula() {
         infoFormula = new JTextArea("             Dado: \n" + "        E = Vf * pf * g \n" + "¿Qué desea encontrar?");
         infoFormula.setFont(new Font("Arial", Font.BOLD, 19));
+        infoFormula.setForeground(new Color(39, 76, 119));
         infoFormula.setBorder(null);
-        infoFormula.setBackground(Color.white);
+        infoFormula.setBackground(new Color(163, 206, 241));
         infoFormula.setEditable(false);
-        infoFormula.setBounds(230, 100, 250, 80);
+        infoFormula.setBounds(250, 90, 250, 80);
         this.add(infoFormula);
     }
 
     public void createGravityJButton(ActionListener ac) {
-        gravityJButton = new JButton("g");
+        gravityJButton = new CircleButton("g");
         gravityJButton.addActionListener(ac);
         gravityJButton.setFont(new Font("Arial", Font.BOLD, 22));
         gravityJButton.setBounds(200, 300, 30, 30);
@@ -67,7 +72,7 @@ public class FormulaSelection extends JPanel {
     }
 
     public void createVolumeButton(ActionListener ac) {
-        volumeJButton = new JButton("Vf");
+        volumeJButton = new CircleButton("Vf");
         volumeJButton.addActionListener(ac);
         volumeJButton.setFont(new Font("Arial", Font.BOLD, 22));
         volumeJButton.setBounds(200, 220, 30, 30);
@@ -76,7 +81,7 @@ public class FormulaSelection extends JPanel {
     }
 
     public void createDensityButton(ActionListener ac) {
-        densityJButton = new JButton("pf");
+        densityJButton = new CircleButton("pf");
         densityJButton.addActionListener(ac);
         densityJButton.setFont(new Font("Arial", Font.BOLD, 22));
         densityJButton.setBounds(200, 260, 30, 30);
@@ -86,10 +91,10 @@ public class FormulaSelection extends JPanel {
     }
 
     public void createPushButton(ActionListener ac) {
-        pushJButton = new JButton("E");
+        pushJButton = new CircleButton("E");
         pushJButton.addActionListener(ac);
         pushJButton.setFont(new Font("Arial", Font.BOLD, 20));
-        pushJButton.setBounds(200, 180, 30, 30);
+        pushJButton.setBounds(200, 182, 30, 30);
         ;
         pushJButton.setBorder(null);
         this.add(pushJButton);
@@ -98,36 +103,40 @@ public class FormulaSelection extends JPanel {
     public void createGravityJLabel() {
         gravityJLabel = new JLabel("Gravedad");
         gravityJLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        gravityJLabel.setForeground(new Color(39, 76, 119));
         gravityJLabel.setBorder(null);
         gravityJLabel.setBackground(Color.blue);
-        gravityJLabel.setBounds(240, 300, 250, 50);
+        gravityJLabel.setBounds(240, 290, 250, 50);
         this.add(gravityJLabel);
     }
 
     public void createVolumeJLabel() {
         volumeJLabel = new JLabel("Volumen del fluido");
         volumeJLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        volumeJLabel.setForeground(new Color(39, 76, 119));
         volumeJLabel.setBorder(null);
         volumeJLabel.setBackground(Color.blue);
-        volumeJLabel.setBounds(240, 220, 250, 50);
+        volumeJLabel.setBounds(240, 210, 250, 50);
         this.add(volumeJLabel);
     }
 
     public void createPushJLabel() {
         pushJLabel = new JLabel("Empuje");
         pushJLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        pushJLabel.setForeground(new Color(39, 76, 119));
         pushJLabel.setBorder(null);
         pushJLabel.setBackground(Color.blue);
-        pushJLabel.setBounds(240, 180, 250, 50);
+        pushJLabel.setBounds(240, 170, 250, 50);
         this.add(pushJLabel);
     }
 
     public void createDensityJLabel() {
         densityJLabel = new JLabel("Densidad del fluido");
         densityJLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        densityJLabel.setForeground(new Color(39, 76, 119));
         densityJLabel.setBorder(null);
         densityJLabel.setBackground(Color.blue);
-        densityJLabel.setBounds(240, 260, 250, 50);
+        densityJLabel.setBounds(240, 250, 250, 50);
         this.add(densityJLabel);
     }
 
