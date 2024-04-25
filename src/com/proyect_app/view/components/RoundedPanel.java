@@ -1,4 +1,4 @@
-package view.components;
+package com.proyect_app.view.components;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
-public class RoundedPanel extends JPanel{
+public class RoundedPanel extends JPanel {
     private int arcWidth;
     private int arcHeight;
 

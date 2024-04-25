@@ -1,9 +1,8 @@
-package view;
+package com.proyect_app.view;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-
 
 public class VolumeView extends JPanel {
     private JLabel dataFormulaLabel;
@@ -17,11 +16,14 @@ public class VolumeView extends JPanel {
     private JTextField fluidDensityTextField;
     private JTextField pushTextField;
     private JButton calculatorButton, returnButton;
-    private JPanel panelInfo,dataPanel;
+    private JPanel panelInfo, dataPanel;
+
     public VolumeView(ActionListener ac) {
         this.config();
-        initComponents(ac);    }
-    public void initComponents(ActionListener ac){
+        initComponents(ac);
+    }
+
+    public void initComponents(ActionListener ac) {
         createDataFormulaLabel();
         createFluidDensityTLabel();
         createFluidDensityTextField();
@@ -37,22 +39,26 @@ public class VolumeView extends JPanel {
         createPanelInfo();
         createDataPanel();
     }
+
     public void config() {
         this.setLayout(null);
-        this.setBackground(new Color(61,130,162));
+        this.setBackground(new Color(61, 130, 162));
     }
+
     private void createPanelInfo() {
         panelInfo = new JPanel();
-        panelInfo.setBounds(400,90,260,290);
+        panelInfo.setBounds(400, 90, 260, 290);
         panelInfo.setBackground(Color.white);
         this.add(panelInfo);
     }
+
     private void createDataPanel() {
         dataPanel = new JPanel();
-        dataPanel.setBounds(30,90,350,290);
+        dataPanel.setBounds(30, 90, 350, 290);
         dataPanel.setBackground(Color.white);
-        this.add( dataPanel);
+        this.add(dataPanel);
     }
+
     public void createJTextAreaInfoData() {
         dataInfo = new JTextArea("Donde:\n" +
                 "\nE-->Fuerza de empuje\n" +
@@ -61,94 +67,109 @@ public class VolumeView extends JPanel {
         dataInfo.setFont(new Font("Arial", Font.BOLD, 20));
         dataInfo.setBackground(Color.white);
         dataInfo.setEditable(false);
-        dataInfo.setBounds(420,140,230,150);
+        dataInfo.setBounds(420, 140, 230, 150);
         dataInfo.setBorder(null);
         this.add(dataInfo);
     }
-    public void createDataFormulaLabel(){
+
+    public void createDataFormulaLabel() {
         dataFormulaLabel = new JLabel("Ingrese los siguientes datos: ");
         dataFormulaLabel.setFont(new Font("Arial", Font.BOLD, 20));
         dataFormulaLabel.setBorder(null);
         dataFormulaLabel.setBackground(Color.blue);
-        dataFormulaLabel.setBounds(75,100,280,30);
+        dataFormulaLabel.setBounds(75, 100, 280, 30);
         this.add(dataFormulaLabel);
     }
+
     public double gravityValue() {
         return Double.parseDouble(gravityTextField.getText());
     }
+
     public double densityValue() {
         return Double.parseDouble(fluidDensityTextField.getText());
     }
+
     public double pushValue() {
         return Double.parseDouble(pushTextField.getText());
     }
-    public void createGravityTextField(){
+
+    public void createGravityTextField() {
         gravityTextField = new JTextField();
-        gravityTextField.setBounds(190,230,80,30);
+        gravityTextField.setBounds(190, 230, 80, 30);
         this.add(gravityTextField);
     }
-    public void createGravityLabel(){
-        gravityLabel= new JLabel("g");
-        gravityLabel.setBounds(140,230,20,30);
+
+    public void createGravityLabel() {
+        gravityLabel = new JLabel("g");
+        gravityLabel.setBounds(140, 230, 20, 30);
         gravityLabel.setFont(new Font("century", Font.BOLD, 14));
         this.add(gravityLabel);
     }
-    public void createResultTextField(){
-       resultJTextField = new JTextField();
-        resultJTextField.setBounds(190,270,80,30);
+
+    public void createResultTextField() {
+        resultJTextField = new JTextField();
+        resultJTextField.setBounds(190, 270, 80, 30);
         resultJTextField.setEditable(false);
         this.add(resultJTextField);
     }
-    public void createResultLabel(){
-        resultJLabel= new JLabel("Resultado");
-        resultJLabel.setBounds(100,270,90,30);
+
+    public void createResultLabel() {
+        resultJLabel = new JLabel("Resultado");
+        resultJLabel.setBounds(100, 270, 90, 30);
         resultJLabel.setFont(new Font("century", Font.BOLD, 14));
         this.add(resultJLabel);
     }
-    public void createFluidDensityTextField(){
+
+    public void createFluidDensityTextField() {
         fluidDensityTextField = new JTextField();
-        fluidDensityTextField.setBounds(190,190,80,30);
+        fluidDensityTextField.setBounds(190, 190, 80, 30);
         this.add(fluidDensityTextField);
 
     }
-    public void createFluidDensityTLabel(){
-        fluidDensityLabel= new JLabel("pf");
-        fluidDensityLabel.setBounds(140,190,20,30);
+
+    public void createFluidDensityTLabel() {
+        fluidDensityLabel = new JLabel("pf");
+        fluidDensityLabel.setBounds(140, 190, 20, 30);
         fluidDensityLabel.setFont(new Font("century", Font.BOLD, 14));
         this.add(fluidDensityLabel);
     }
-    public void createPushJTextField(){
-       pushTextField= new JTextField();
-        pushTextField.setBounds(190,150,80,30);
+
+    public void createPushJTextField() {
+        pushTextField = new JTextField();
+        pushTextField.setBounds(190, 150, 80, 30);
         this.add(pushTextField);
     }
-    public void createPushLabel(){
-       pushJLabel= new JLabel("E");
-        pushJLabel.setBounds(140,150,20,30);
+
+    public void createPushLabel() {
+        pushJLabel = new JLabel("E");
+        pushJLabel.setBounds(140, 150, 20, 30);
         pushJLabel.setFont(new Font("century", Font.BOLD, 14));
-        this.add( pushJLabel);
+        this.add(pushJLabel);
     }
-    public void createCalculatorButton(ActionListener ac){
+
+    public void createCalculatorButton(ActionListener ac) {
         calculatorButton = new JButton("Calcular");
-        calculatorButton.setBackground(new Color(5,36,90));
+        calculatorButton.setBackground(new Color(5, 36, 90));
         calculatorButton.setForeground(Color.white);
         calculatorButton.addActionListener(ac);
-        calculatorButton.setBounds(178,320,100,30);
+        calculatorButton.setBounds(178, 320, 100, 30);
         calculatorButton.setFont(new Font("century", Font.BOLD, 18));
         calculatorButton.setBorder(null);
         calculatorButton.setActionCommand("CalcularVol");
         this.add(calculatorButton);
     }
+
     public void showResult(Object T) {
-        getResultJTextField().setText(""+String.valueOf(T));
+        getResultJTextField().setText("" + String.valueOf(T));
         this.repaint();
     }
-    public void createReturnButton(ActionListener ac){
+
+    public void createReturnButton(ActionListener ac) {
         returnButton = new JButton("<-");
-        returnButton.setBackground(new Color(5,36,90));
+        returnButton.setBackground(new Color(5, 36, 90));
         returnButton.setForeground(Color.white);
         returnButton.addActionListener(ac);
-        returnButton.setBounds(38,100,20,20);
+        returnButton.setBounds(38, 100, 20, 20);
         returnButton.setFont(new Font("century", Font.BOLD, 15));
         returnButton.setActionCommand("Volver");
         returnButton.setBorder(null);

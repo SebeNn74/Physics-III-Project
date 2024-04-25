@@ -1,13 +1,12 @@
-package view;
+package com.proyect_app.view;
 
-
-import presenter.VerificationPresenter;
+import com.proyect_app.presenter.VerificationPresenter;
 
 import java.awt.BorderLayout;
 import javax.swing.*;
 
+public class View extends JFrame {
 
-public class View extends JFrame{
     private MainWindow panelMainWindow;
     private FormulaSelection panelFormulaSelection;
     private PushView panelPush;
@@ -15,26 +14,30 @@ public class View extends JFrame{
     private DensityView panelDensity;
     private GravityView panelGravity;
     private JPanel panel;
+
     public View(VerificationPresenter ac) {
         this.setUpFrame();
         this.initComponents(ac);
     }
+
     public void notifyWarning(String mesagge) {
-        JOptionPane jo = new JOptionPane();
-        jo.showMessageDialog(null,mesagge,"",JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, mesagge, "", JOptionPane.ERROR_MESSAGE);
     }
+
     public void initComponents(VerificationPresenter ac) {
         addHeader(ac);
     }
+
     public void setUpFrame() {
         this.setTitle("Calculadora fuerza de empuje");
-        this.setSize(700,500);
+        this.setSize(700, 500);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
+
     public void createPanelMainWindow(VerificationPresenter ac) {
         setPanel();
         panelMainWindow = new MainWindow(ac);
@@ -43,6 +46,7 @@ public class View extends JFrame{
         panel.repaint();
         repaint();
     }
+
     public void createPanelGravity(VerificationPresenter ac) {
         setPanel();
         panelGravity = new GravityView(ac);
@@ -51,6 +55,7 @@ public class View extends JFrame{
         panel.repaint();
         repaint();
     }
+
     public void createPanelVolume(VerificationPresenter ac) {
         setPanel();
         panelVolume = new VolumeView(ac);
@@ -59,6 +64,7 @@ public class View extends JFrame{
         panel.repaint();
         repaint();
     }
+
     public void createPanelDensity(VerificationPresenter ac) {
         setPanel();
         panelDensity = new DensityView(ac);
@@ -67,7 +73,8 @@ public class View extends JFrame{
         panel.repaint();
         repaint();
     }
-    public void createPanelFormulaSelection(VerificationPresenter ac){
+
+    public void createPanelFormulaSelection(VerificationPresenter ac) {
         setPanel();
         panelFormulaSelection = new FormulaSelection(ac);
         panel.add(panelFormulaSelection);
@@ -92,6 +99,7 @@ public class View extends JFrame{
         panelMainWindow = new MainWindow(ac);
         panel.add(panelMainWindow, BorderLayout.CENTER);
     }
+
     private void setPanel() {
         if (panelMainWindow != null) {
             panelMainWindow.setVisible(false);
@@ -113,7 +121,7 @@ public class View extends JFrame{
             panelDensity.setVisible(false);
             remove(panelDensity);
         }
-        if(panelGravity != null){
+        if (panelGravity != null) {
             panelGravity.setVisible(false);
             remove(panelGravity);
         }
