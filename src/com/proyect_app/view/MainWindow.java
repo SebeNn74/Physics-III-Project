@@ -82,8 +82,4 @@ public class MainWindow extends JPanel {
         optionTwo.setActionCommand("twoOption");
         this.add(optionTwo);
     }
-
-    public static void main(String[] args) {
-        new View(null).createPanelMainWindow(null);
-    }
 }

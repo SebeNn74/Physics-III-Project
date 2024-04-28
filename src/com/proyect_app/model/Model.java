@@ -21,4 +21,13 @@ public class Model {
     public double calculateGravityForce(double density, double volume, double push) {
         return push / (volume * density);
     }
+    public double calculatePushWeightForce( double weight, double apparentWeight) {
+        return weight-apparentWeight;
+    }
+    public double calculateWeight( double push, double apparentWeight) {
+        return push+apparentWeight;
+    }
+    public double calculateApparenWeight( double push, double weight) {
+        return weight-push;
+    }
 }

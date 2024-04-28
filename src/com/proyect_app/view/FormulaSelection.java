@@ -139,10 +139,4 @@ public class FormulaSelection extends JPanel {
         densityJLabel.setBounds(240, 250, 250, 50);
         this.add(densityJLabel);
     }
-
-    public static void main(String[] args) {
-        new View(null).createPanelFormulaSelection(null);
-        ;
-    }
-
 }
