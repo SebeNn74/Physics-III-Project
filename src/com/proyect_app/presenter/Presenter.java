@@ -6,11 +6,11 @@ import com.proyect_app.view.View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class VerificationPresenter implements ActionListener {
+public class Presenter implements ActionListener {
     private View view;
     private Model model;
 
-    public VerificationPresenter() {
+    public Presenter() {
         initComponents();
         view.createPanelMainWindow(this);
         model = new Model();
@@ -47,6 +47,21 @@ public class VerificationPresenter implements ActionListener {
         double push = view.getPanelGravity().pushValue();
         return model.calculateGravityForce(density, volume, push);
     }
+    public double calculatePushWeightForce( ) {
+        double weight= view.getPanelPushWeight().weightValue();
+        double apparentWeight = view.getPanelPushWeight().apparentWeightValue();
+        return model.calculatePushWeightForce(weight,apparentWeight);
+    }
+    public double calculateWeight( ) {
+       double push=view.getPanelWeight().pushValue();
+       double apparentWeight=view.getPanelPushWeight().apparentWeightValue();
+       return model.calculateWeight(push,apparentWeight);
+    }
+    public double calculateApparenWeight() {
+        double push=view.getPanelApparentWeight().pushValue();
+        double weight=view.getPanelApparentWeight().weightValue();
+        return model.calculateApparenWeight(push,weight);
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -54,7 +69,7 @@ public class VerificationPresenter implements ActionListener {
             view.createPanelFormulaSelection(this);
         }
         if (e.getActionCommand().equals("twoOption")) {
-
+            view.createPanelWeightFormula(this);
         }
         if (e.getActionCommand().equals("E")) {
             view.createPanelPush(this);
@@ -72,6 +87,15 @@ public class VerificationPresenter implements ActionListener {
         if (e.getActionCommand().equals("CalcularDen")) {
             view.getPanelDensity().showResult(density());
         }
+        if (e.getActionCommand().equals("CalcularPeso")){
+            view.getPanelWeight().showResult(calculateWeight());
+        }
+        if (e.getActionCommand().equals("CalcularPesoAp")){
+            view.getPanelApparentWeight().showResult(calculateApparenWeight());
+        }
+        if (e.getActionCommand().equals("CalcularEmPeso")){
+            view.getPanelPushWeight().showResult(calculatePushWeightForce());
+        }
         if (e.getActionCommand().equals("Vf")) {
             view.createPanelVolume(this);
         }
@@ -83,7 +107,18 @@ public class VerificationPresenter implements ActionListener {
         }
         if (e.getActionCommand().equals("Volver")) {
             view.createPanelFormulaSelection(this);
-
+        }
+        if (e.getActionCommand().equals("VolverDos")) {
+            view.createPanelWeightFormula(this);
+        }
+        if (e.getActionCommand().equals("EWeight")){
+            view.createPanelPushWeight(this);
+        }
+        if (e.getActionCommand().equals("W")){
+            view.createPanelWeight(this);
+        }
+        if (e.getActionCommand().equals("Wa")){
+            view.createPanelApparentWeight(this);
         }
     }
 
@@ -142,6 +177,6 @@ public class VerificationPresenter implements ActionListener {
      * }
      */
     public static void main(String[] args) {
-        new VerificationPresenter().actionPerformed(null);
+        new Presenter().actionPerformed(null);
     }
 }
