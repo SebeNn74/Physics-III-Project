@@ -36,11 +36,10 @@ public class FormulaSelection extends JPanel {
         createVolumeButton(ac);
         createGravityJButton(ac);
         createAuxPanel();
-
     }
 
     public void createAuxPanel() {
-        auxPanel = new RoundedPanel(35,35);
+        auxPanel = new RoundedPanel(35, 35);
         auxPanel.setBounds(120, 70, 450, 330);
         auxPanel.setBackground(new Color(163, 206, 241));
         this.add(auxPanel);
