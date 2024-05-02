@@ -3,7 +3,6 @@ package com.proyect_app.view;
 import javax.swing.*;
 
 import com.proyect_app.view.components.CircleButton;
-import com.proyect_app.view.components.RoundedButton;
 import com.proyect_app.view.components.RoundedPanel;
 
 import java.awt.*;
@@ -20,7 +19,6 @@ public class FormulaSelection extends JPanel {
     private JLabel volumeJLabel;
     private JLabel pushJLabel;
     private JLabel densityJLabel;
-    private RoundedButton returnButton;
 
     public FormulaSelection(ActionListener ac) {
         this.config();
@@ -37,12 +35,11 @@ public class FormulaSelection extends JPanel {
         createDensityButton(ac);
         createVolumeButton(ac);
         createGravityJButton(ac);
-        createReturnButton(ac);
         createAuxPanel();
     }
 
     public void createAuxPanel() {
-        auxPanel = new RoundedPanel(35,35);
+        auxPanel = new RoundedPanel(35, 35);
         auxPanel.setBounds(120, 70, 450, 330);
         auxPanel.setBackground(new Color(163, 206, 241));
         this.add(auxPanel);
