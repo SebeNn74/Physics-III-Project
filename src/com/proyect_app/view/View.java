@@ -1,6 +1,6 @@
 package com.proyect_app.view;
 
-import com.proyect_app.presenter.VerificationPresenter;
+import com.proyect_app.presenter.Presenter;
 
 import java.awt.BorderLayout;
 import javax.swing.*;
@@ -13,9 +13,13 @@ public class View extends JFrame {
     private VolumeView panelVolume;
     private DensityView panelDensity;
     private GravityView panelGravity;
+    private FormulaSelectionWeight panelWeightFormula;
+    private PushWeightView panelPushWeight;
+    private WeightView panelWeight;
+    private ApparentWeightView panelApparentWeight;
     private JPanel panel;
 
-    public View(VerificationPresenter ac) {
+    public View(Presenter ac) {
         this.setUpFrame();
         this.initComponents(ac);
     }
@@ -24,7 +28,7 @@ public class View extends JFrame {
         JOptionPane.showMessageDialog(null, mesagge, "", JOptionPane.ERROR_MESSAGE);
     }
 
-    public void initComponents(VerificationPresenter ac) {
+    public void initComponents(Presenter ac) {
         addHeader(ac);
     }
 
@@ -38,7 +42,7 @@ public class View extends JFrame {
         this.setVisible(true);
     }
 
-    public void createPanelMainWindow(VerificationPresenter ac) {
+    public void createPanelMainWindow(Presenter ac) {
         setPanel();
         panelMainWindow = new MainWindow(ac);
         panel.add(panelMainWindow);
@@ -47,7 +51,23 @@ public class View extends JFrame {
         repaint();
     }
 
-    public void createPanelGravity(VerificationPresenter ac) {
+    public void createPanelWeight(Presenter ac) {
+        setPanel();
+        panelWeight = new WeightView(ac);
+        panel.add(panelWeight);
+        panel.revalidate();
+        panel.repaint();
+        repaint();
+    } public void createPanelApparentWeight(Presenter ac) {
+        setPanel();
+        panelApparentWeight = new ApparentWeightView(ac);
+        panel.add(panelApparentWeight);
+        panel.revalidate();
+        panel.repaint();
+        repaint();
+    }
+
+    public void createPanelGravity(Presenter ac) {
         setPanel();
         panelGravity = new GravityView(ac);
         panel.add(panelGravity);
@@ -55,8 +75,24 @@ public class View extends JFrame {
         panel.repaint();
         repaint();
     }
+    public void createPanelPushWeight(Presenter ac) {
+        setPanel();
+        panelPushWeight = new PushWeightView(ac);
+        panel.add(panelPushWeight);
+        panel.revalidate();
+        panel.repaint();
+        repaint();
+    }
+    public void createPanelWeightFormula(Presenter ac) {
+        setPanel();
+        panelWeightFormula = new FormulaSelectionWeight(ac);
+        panel.add(panelWeightFormula);
+        panel.revalidate();
+        panel.repaint();
+        repaint();
+    }
 
-    public void createPanelVolume(VerificationPresenter ac) {
+    public void createPanelVolume(Presenter ac) {
         setPanel();
         panelVolume = new VolumeView(ac);
         panel.add(panelVolume);
@@ -65,7 +101,7 @@ public class View extends JFrame {
         repaint();
     }
 
-    public void createPanelDensity(VerificationPresenter ac) {
+    public void createPanelDensity(Presenter ac) {
         setPanel();
         panelDensity = new DensityView(ac);
         panel.add(panelDensity);
@@ -74,7 +110,7 @@ public class View extends JFrame {
         repaint();
     }
 
-    public void createPanelFormulaSelection(VerificationPresenter ac) {
+    public void createPanelFormulaSelection(Presenter ac) {
         setPanel();
         panelFormulaSelection = new FormulaSelection(ac);
         panel.add(panelFormulaSelection);
@@ -83,7 +119,7 @@ public class View extends JFrame {
         repaint();
     }
 
-    public void createPanelPush(VerificationPresenter ac) {
+    public void createPanelPush(Presenter ac) {
         setPanel();
         panelPush = new PushView(ac);
         panel.add(panelPush);
@@ -92,7 +128,7 @@ public class View extends JFrame {
         repaint();
     }
 
-    private void addHeader(VerificationPresenter ac) {
+    private void addHeader(Presenter ac) {
         panel = new JPanel();
         panel.setLayout(new BorderLayout());
         this.getContentPane().add(panel, BorderLayout.CENTER);
@@ -125,7 +161,22 @@ public class View extends JFrame {
             panelGravity.setVisible(false);
             remove(panelGravity);
         }
-
+        if (panelWeightFormula != null) {
+            panelWeightFormula.setVisible(false);
+            remove(panelWeightFormula);
+        }
+        if (panelPushWeight != null) {
+            panelPushWeight.setVisible(false);
+            remove(panelPushWeight);
+        }
+        if (panelWeight != null) {
+            panelWeight.setVisible(false);
+            remove(panelWeight);
+        }
+        if (panelApparentWeight != null) {
+            panelApparentWeight.setVisible(false);
+            remove(panelApparentWeight);
+        }
     }
 
     public MainWindow getPanelMainWindow() {
@@ -150,5 +201,17 @@ public class View extends JFrame {
 
     public GravityView getPanelGravity() {
         return panelGravity;
+    }
+
+    public PushWeightView getPanelPushWeight() {
+        return panelPushWeight;
+    }
+
+    public WeightView getPanelWeight() {
+        return panelWeight;
+    }
+
+    public ApparentWeightView getPanelApparentWeight() {
+        return panelApparentWeight;
     }
 }

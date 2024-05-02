@@ -141,21 +141,4 @@ public class FormulaSelection extends JPanel {
         densityJLabel.setBounds(240, 250, 250, 50);
         this.add(densityJLabel);
     }
-        public void createReturnButton(ActionListener ac) {
-        returnButton = new RoundedButton("<-");
-        returnButton.setBackground(new Color(231, 236, 239));
-        returnButton.setForeground(new Color(39, 76, 119));
-        returnButton.addActionListener(ac);
-        returnButton.setBounds(138, 100, 20, 20);
-        returnButton.setFont(new Font("century", Font.BOLD, 15));
-        returnButton.setActionCommand("Inicio");
-        returnButton.setBorder(null);
-        this.add(returnButton);
-    }
-
-    public static void main(String[] args) {
-        new View(null).createPanelFormulaSelection(null);
-        ;
-    }
-
 }
