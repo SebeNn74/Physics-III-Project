@@ -2,6 +2,7 @@ package com.proyect_app.view;
 
 import javax.swing.*;
 
+import com.proyect_app.view.components.NumericTextField;
 import com.proyect_app.view.components.RoundedButton;
 import com.proyect_app.view.components.RoundedPanel;
 
@@ -101,7 +102,7 @@ public class PushView extends JPanel {
     }
 
     public void createGravityTextField() {
-        gravityTextField = new JTextField();
+        gravityTextField = new NumericTextField();
         gravityTextField.setBounds(190, 230, 80, 30);
         this.add(gravityTextField);
     }
@@ -115,7 +116,7 @@ public class PushView extends JPanel {
     }
 
     public void createResultTextField() {
-        resultJTextField = new JTextField();
+        resultJTextField = new NumericTextField();
         resultJTextField.setBounds(190, 270, 80, 30);
         resultJTextField.setEditable(false);
         this.add(resultJTextField);
@@ -130,7 +131,7 @@ public class PushView extends JPanel {
     }
 
     public void createFluidDensityTextField() {
-        fluidDensityTextField = new JTextField();
+        fluidDensityTextField = new NumericTextField();
         fluidDensityTextField.setBounds(190, 190, 80, 30);
         this.add(fluidDensityTextField);
 
@@ -145,7 +146,7 @@ public class PushView extends JPanel {
     }
 
     public void createFluidVolumeTextField() {
-        fluidVolumeTextField = new JTextField();
+        fluidVolumeTextField = new NumericTextField();
         fluidVolumeTextField.setBounds(190, 150, 80, 30);
         this.add(fluidVolumeTextField);
     }
@@ -191,7 +192,4 @@ public class PushView extends JPanel {
         return resultJTextField;
     }
 
-    public static void main(String[] args) {
-        new View(null).createPanelPush(null);
-    }
 }
