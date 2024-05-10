@@ -14,8 +14,8 @@ public class NumericTextField extends JTextField {
     }
 
     class NumericDocumentFilter extends DocumentFilter {
-        private static final int MAX_INTEGER_DIGITS = 8;
-        private static final int MAX_DECIMAL_DIGITS = 8;
+        private static final int MAX_INTEGER_DIGITS = 5;
+        private static final int MAX_DECIMAL_DIGITS = 4;
 
         @Override
         public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr) throws BadLocationException {
