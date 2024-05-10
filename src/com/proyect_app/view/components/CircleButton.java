@@ -26,7 +26,7 @@ public class CircleButton extends JButton implements MouseListener{
         this.setBorderPainted(false);
         this.setContentAreaFilled(true);
         this.setFocusPainted(false);
-        this.setOpaque(true);
+        this.setOpaque(false);
         this.setPreferredSize(new Dimension(100, 50));
         this.setCursor(new Cursor(Cursor.HAND_CURSOR));
         this.defaultTextColor = this.getForeground();

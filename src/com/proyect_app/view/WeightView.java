@@ -100,7 +100,7 @@ public class WeightView extends JPanel {
     public void createApparentWeightJLabel() {
         apparentWeightJLabel = new JLabel("Wa");
         apparentWeightJLabel.setBounds(140, 205, 30, 30);
-        apparentWeightJLabel.setFont(new Font("century", Font.BOLD, 14));
+        apparentWeightJLabel.setFont(new Font("Arial", Font.BOLD, 14));
         apparentWeightJLabel.setForeground(new Color(39, 76, 119));
         this.add(apparentWeightJLabel);
     }
@@ -115,7 +115,7 @@ public class WeightView extends JPanel {
     public void createResultLabel() {
         resultJLabel = new JLabel("Resultado");
         resultJLabel.setBounds(100, 245, 90, 30);
-        resultJLabel.setFont(new Font("century", Font.BOLD, 14));
+        resultJLabel.setFont(new Font("Arial", Font.BOLD, 14));
         resultJLabel.setForeground(new Color(39, 76, 119));
         this.add(resultJLabel);
     }
@@ -129,7 +129,7 @@ public class WeightView extends JPanel {
     public void createPushJLabel() {
         pushJLabel = new JLabel("E");
         pushJLabel.setBounds(140, 165, 20, 30);
-        pushJLabel.setFont(new Font("century", Font.BOLD, 14));
+        pushJLabel.setFont(new Font("Arial", Font.BOLD, 14));
         pushJLabel.setForeground(new Color(39, 76, 119));
         this.add(pushJLabel);
     }
@@ -140,7 +140,7 @@ public class WeightView extends JPanel {
         calculatorButton.addActionListener(ac);
         calculatorButton.setActionCommand("CalcularPeso");
         calculatorButton.setBounds(178, 300, 100, 30);
-        calculatorButton.setFont(new Font("century", Font.BOLD, 18));
+        calculatorButton.setFont(new Font("Arial", Font.BOLD, 18));
         calculatorButton.setBorder(null);
         this.add(calculatorButton);
     }
@@ -156,7 +156,7 @@ public class WeightView extends JPanel {
         returnButton.setForeground(new Color(231, 236, 239));
         returnButton.addActionListener(ac);
         returnButton.setBounds(38, 110, 20, 20);
-        returnButton.setFont(new Font("century", Font.BOLD, 15));
+        returnButton.setFont(new Font("Arial", Font.BOLD, 15));
         returnButton.setActionCommand("VolverDos");
         returnButton.setBorder(null);
         this.add(returnButton);

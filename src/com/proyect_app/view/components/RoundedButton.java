@@ -14,80 +14,66 @@ import java.awt.geom.RoundRectangle2D;
 import javax.swing.JButton;
 
 public class RoundedButton extends JButton implements MouseListener {
-
+    
     private Color defaultTextColor;
     private Color defaultBackground;
+    private Color hoverColor;
+    private boolean isMouseOver;
 
     public RoundedButton(String text) {
-
         super(text);
-        this.setBorder(null);
-        this.setFont(new Font("Alegreya Sans", Font.PLAIN, 24));
-        this.setBackground(new Color(231, 236, 239));
-        this.setForeground(new Color(39, 76, 119));
-        this.setBorderPainted(false);
-        this.setContentAreaFilled(true);
-        this.setFocusPainted(false);
-        this.setOpaque(true);
-        this.setPreferredSize(new Dimension(100, 50));
-        this.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        this.defaultTextColor = this.getForeground();
-        this.defaultBackground = this.getBackground();
+        this.defaultTextColor = new Color(39, 76, 119);
+        this.defaultBackground = new Color(231, 236, 239);
+        this.hoverColor = new Color(139, 140, 137);
+        initButton();
+    }
+
+    private void initButton() {
+        setFont(new Font("Alegreya Sans", Font.PLAIN, 24));
+        setForeground(defaultTextColor);
+        setBackground(defaultBackground);
+        setBorderPainted(false);
+        setContentAreaFilled(true);
+        setFocusPainted(false);
+        setOpaque(false);
+        setPreferredSize(new Dimension(100, 50));
+        setCursor(new Cursor(Cursor.HAND_CURSOR));
         addMouseListener(this);
+        isMouseOver = false;
     }
 
     @Override
     public void paintComponent(Graphics g) {
-
+        super.paintComponent(g); // Esto es importante para manejar correctamente la repintura
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        if (getModel().isArmed()) {
-            g2.setColor(new Color(96, 150, 186));
-        } else {
-            g2.setColor(getBackground());
-        }
 
+        Color fill = isMouseOver ? hoverColor : getBackground();
+        g2.setColor(fill);
         RoundRectangle2D.Double shape = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 35, 35);
-
         g2.fill(shape);
         g2.setColor(getForeground());
         g2.setFont(getFont());
         g2.drawString(getText(), getWidth() / 2 - g2.getFontMetrics().stringWidth(getText()) / 2,
-                getHeight() / 2 + g2.getFontMetrics().getAscent() / 2 - 5);
+                getHeight() / 2 + g2.getFontMetrics().getAscent() / 2 - 2);
         g2.dispose();
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
     public void mouseEntered(MouseEvent e) {
-
-        this.setBackground(new Color(139, 140, 137));
-        this.repaint();
-
+        isMouseOver = true;
+        repaint();
+        revalidate(); // Agregar esto para asegurar la actualización completa del componente
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-
-        this.setBackground(defaultBackground);
-        this.setForeground(defaultTextColor);
+        isMouseOver = false;
+        repaint();
+        revalidate(); // Agregar esto para asegurar la actualización completa del componente
     }
 
+    @Override public void mouseClicked(MouseEvent e) {}
+    @Override public void mousePressed(MouseEvent e) {}
+    @Override public void mouseReleased(MouseEvent e) {}
 }

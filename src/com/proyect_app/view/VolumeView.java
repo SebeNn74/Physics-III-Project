@@ -108,7 +108,7 @@ public class VolumeView extends JPanel {
     public void createGravityLabel() {
         gravityLabel = new JLabel("g");
         gravityLabel.setBounds(140, 230, 20, 30);
-        gravityLabel.setFont(new Font("century", Font.BOLD, 14));
+        gravityLabel.setFont(new Font("Arial", Font.BOLD, 14));
         gravityLabel.setForeground(new Color(39, 76, 119));
         this.add(gravityLabel);
     }
@@ -123,7 +123,7 @@ public class VolumeView extends JPanel {
     public void createResultLabel() {
         resultJLabel = new JLabel("Resultado");
         resultJLabel.setBounds(100, 270, 90, 30);
-        resultJLabel.setFont(new Font("century", Font.BOLD, 14));
+        resultJLabel.setFont(new Font("Arial", Font.BOLD, 14));
         resultJLabel.setForeground(new Color(39, 76, 119));
         this.add(resultJLabel);
     }
@@ -139,7 +139,7 @@ public class VolumeView extends JPanel {
         fluidDensityLabel = new JLabel("pf");
         fluidDensityLabel.setBounds(140, 190, 20, 30);
         fluidDensityLabel.setForeground(new Color(39, 76, 119));
-        fluidDensityLabel.setFont(new Font("century", Font.BOLD, 14));
+        fluidDensityLabel.setFont(new Font("Arial", Font.BOLD, 14));
         this.add(fluidDensityLabel);
     }
 
@@ -153,7 +153,7 @@ public class VolumeView extends JPanel {
         pushJLabel = new JLabel("E");
         pushJLabel.setBounds(140, 150, 20, 30);
         pushJLabel.setForeground(new Color(39, 76, 119));
-        pushJLabel.setFont(new Font("century", Font.BOLD, 14));
+        pushJLabel.setFont(new Font("Arial", Font.BOLD, 14));
         this.add(pushJLabel);
     }
 
@@ -163,7 +163,7 @@ public class VolumeView extends JPanel {
         calculatorButton.setForeground(new Color(39, 76, 119));
         calculatorButton.addActionListener(ac);
         calculatorButton.setBounds(178, 320, 100, 30);
-        calculatorButton.setFont(new Font("century", Font.BOLD, 18));
+        calculatorButton.setFont(new Font("Arial", Font.BOLD, 18));
         calculatorButton.setBorder(null);
         calculatorButton.setActionCommand("CalcularVol");
         this.add(calculatorButton);
@@ -180,7 +180,7 @@ public class VolumeView extends JPanel {
         returnButton.setForeground(new Color(231, 236, 239));
         returnButton.addActionListener(ac);
         returnButton.setBounds(38, 100, 20, 20);
-        returnButton.setFont(new Font("century", Font.BOLD, 15));
+        returnButton.setFont(new Font("Arial", Font.BOLD, 15));
         returnButton.setActionCommand("Volver");
         returnButton.setBorder(null);
         this.add(returnButton);

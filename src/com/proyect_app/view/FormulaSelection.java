@@ -2,7 +2,8 @@ package com.proyect_app.view;
 
 import javax.swing.*;
 
-import com.proyect_app.view.components.CircleButton;
+import com.proyect_app.view.components.ButtonImage;
+import com.proyect_app.view.components.RoundedButton;
 import com.proyect_app.view.components.RoundedPanel;
 
 import java.awt.*;
@@ -11,14 +12,11 @@ import java.awt.event.ActionListener;
 public class FormulaSelection extends JPanel {
     private JTextArea infoFormula;
     private RoundedPanel auxPanel;
-    private CircleButton gravityJButton;
-    private CircleButton volumeJButton;
-    private CircleButton pushJButton;
-    private CircleButton densityJButton;
-    private JLabel gravityJLabel;
-    private JLabel volumeJLabel;
-    private JLabel pushJLabel;
-    private JLabel densityJLabel;
+    private RoundedButton gravityJButton;
+    private RoundedButton volumeJButton;
+    private RoundedButton pushJButton;
+    private RoundedButton densityJButton;
+    private ButtonImage homeButtonImage;
 
     public FormulaSelection(ActionListener ac) {
         this.config();
@@ -28,10 +26,7 @@ public class FormulaSelection extends JPanel {
     public void initComponents(ActionListener ac) {
         createJTextAreaInfoFormula();
         createPushButton(ac);
-        createPushJLabel();
-        createDensityJLabel();
-        createGravityJLabel();
-        createVolumeJLabel();
+        createHomeButtonImage(ac);
         createDensityButton(ac);
         createVolumeButton(ac);
         createGravityJButton(ac);
@@ -61,81 +56,56 @@ public class FormulaSelection extends JPanel {
         this.add(infoFormula);
     }
 
+    private void createHomeButtonImage(ActionListener ac) {
+    	homeButtonImage = new ButtonImage("resources/boton-inicio.png", 50, 50);
+    	homeButtonImage.setBounds(130, 80, 50, 50);
+    	homeButtonImage.addActionListener(ac);
+    	homeButtonImage.setActionCommand("Home");
+    	homeButtonImage.setBorder(null);
+    	this.add(homeButtonImage);
+
+    }
+
     public void createGravityJButton(ActionListener ac) {
-        gravityJButton = new CircleButton("g");
+        gravityJButton = new RoundedButton("g : Gravedad");
         gravityJButton.addActionListener(ac);
+        gravityJButton.setActionCommand("g");
         gravityJButton.setFont(new Font("Arial", Font.BOLD, 22));
-        gravityJButton.setBounds(200, 300, 30, 30);
+        gravityJButton.setBounds(200, 305, 170, 33);
         gravityJButton.setBorder(null);
         this.add(gravityJButton);
     }
 
     public void createVolumeButton(ActionListener ac) {
-        volumeJButton = new CircleButton("Vf");
+        volumeJButton = new RoundedButton("Vf : Volumen");
         volumeJButton.addActionListener(ac);
-        volumeJButton.setFont(new Font("Arial", Font.BOLD, 22));
-        volumeJButton.setBounds(200, 220, 30, 30);
+        volumeJButton.setActionCommand("Vf");
+        volumeJButton.setFont(new Font("Arial", Font.BOLD, 20));
+        volumeJButton.setBounds(200, 225, 160, 33);
         volumeJButton.setBorder(null);
         this.add(volumeJButton);
     }
 
     public void createDensityButton(ActionListener ac) {
-        densityJButton = new CircleButton("pf");
+        densityJButton = new RoundedButton("pf : Densidad del fluido");
         densityJButton.addActionListener(ac);
+        densityJButton.setActionCommand("pf");
         densityJButton.setFont(new Font("Arial", Font.BOLD, 22));
-        densityJButton.setBounds(200, 260, 30, 30);
+        densityJButton.setBounds(200, 265, 270, 33);
         ;
         densityJButton.setBorder(null);
         this.add(densityJButton);
     }
 
     public void createPushButton(ActionListener ac) {
-        pushJButton = new CircleButton("E");
+        pushJButton = new RoundedButton("E : Empuje");
         pushJButton.addActionListener(ac);
+        pushJButton.setActionCommand("E");
         pushJButton.setFont(new Font("Arial", Font.BOLD, 20));
-        pushJButton.setBounds(200, 182, 30, 30);
+        pushJButton.setBounds(200, 185, 150, 33);
         ;
         pushJButton.setBorder(null);
         this.add(pushJButton);
     }
 
-    public void createGravityJLabel() {
-        gravityJLabel = new JLabel("Gravedad");
-        gravityJLabel.setFont(new Font("Arial", Font.BOLD, 20));
-        gravityJLabel.setForeground(new Color(39, 76, 119));
-        gravityJLabel.setBorder(null);
-        gravityJLabel.setBackground(Color.blue);
-        gravityJLabel.setBounds(240, 290, 250, 50);
-        this.add(gravityJLabel);
-    }
-
-    public void createVolumeJLabel() {
-        volumeJLabel = new JLabel("Volumen del fluido");
-        volumeJLabel.setFont(new Font("Arial", Font.BOLD, 20));
-        volumeJLabel.setForeground(new Color(39, 76, 119));
-        volumeJLabel.setBorder(null);
-        volumeJLabel.setBackground(Color.blue);
-        volumeJLabel.setBounds(240, 210, 250, 50);
-        this.add(volumeJLabel);
-    }
-
-    public void createPushJLabel() {
-        pushJLabel = new JLabel("Empuje");
-        pushJLabel.setFont(new Font("Arial", Font.BOLD, 20));
-        pushJLabel.setForeground(new Color(39, 76, 119));
-        pushJLabel.setBorder(null);
-        pushJLabel.setBackground(Color.blue);
-        pushJLabel.setBounds(240, 170, 250, 50);
-        this.add(pushJLabel);
-    }
-
-    public void createDensityJLabel() {
-        densityJLabel = new JLabel("Densidad del fluido");
-        densityJLabel.setFont(new Font("Arial", Font.BOLD, 20));
-        densityJLabel.setForeground(new Color(39, 76, 119));
-        densityJLabel.setBorder(null);
-        densityJLabel.setBackground(Color.blue);
-        densityJLabel.setBounds(240, 250, 250, 50);
-        this.add(densityJLabel);
-    }
 }
