@@ -21,7 +21,7 @@ public class PushView extends JPanel {
     private JTextField gravityTextField;
     private JTextField fluidDensityTextField;
     private JTextField fluidVolumeTextField;
-    private RoundedButton calculatorButton, returnButton;
+    private RoundedButton calculatorButton;
     private RoundedPanel panelInfo, dataPanel;
     private JComboBox<String> comboBoxVolf;
     private JComboBox<String> comboBoxDenf;
@@ -45,7 +45,6 @@ public class PushView extends JPanel {
         createJTextAreaInfoData();
         createResultLabel();
         createResultTextField();
-        createReturnButton(ac);
         createComboBoxVolf(ac);
         createComboBoxDenf(ac);
         createComboBoxGrav(ac);
@@ -66,7 +65,7 @@ public class PushView extends JPanel {
     	returnButtonImage = new ButtonImage("resources/boton-volver.png", 50, 50);
     	returnButtonImage.setBounds(420, 340, 50, 50);
     	returnButtonImage.addActionListener(ac);
-    	returnButtonImage.setActionCommand("EMPreturnButtonImage");
+    	returnButtonImage.setActionCommand("VolverFSDenVol");
     	returnButtonImage.setBorder(null);
     	this.add(returnButtonImage);
 
@@ -76,7 +75,7 @@ public class PushView extends JPanel {
     	homeButtonImage = new ButtonImage("resources/boton-inicio.png", 50, 50);
     	homeButtonImage.setBounds(500, 340, 50, 50);
     	homeButtonImage.addActionListener(ac);
-    	homeButtonImage.setActionCommand("EMPhomeButtonImage");
+    	homeButtonImage.setActionCommand("Home");
     	homeButtonImage.setBorder(null);
     	this.add(homeButtonImage);
 
@@ -246,18 +245,6 @@ public class PushView extends JPanel {
     public void showResult(Object T) {
         getResultJTextField().setText("" + String.valueOf(T));
         this.repaint();
-    }
-
-    public void createReturnButton(ActionListener ac) {
-        returnButton = new RoundedButton("<-");
-        returnButton.setBackground(new Color(39, 76, 119));
-        returnButton.setForeground(new Color(231, 236, 239));
-        returnButton.addActionListener(ac);
-        returnButton.setBounds(410, 70, 20, 20);
-        returnButton.setFont(new Font("century", Font.BOLD, 15));
-        returnButton.setActionCommand("Volver");
-        returnButton.setBorder(null);
-        this.add(returnButton);
     }
 
     public JTextField getResultJTextField() {
