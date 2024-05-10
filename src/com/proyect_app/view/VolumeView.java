@@ -2,6 +2,7 @@ package com.proyect_app.view;
 
 import javax.swing.*;
 
+import com.proyect_app.view.components.NumericTextField;
 import com.proyect_app.view.components.RoundedButton;
 import com.proyect_app.view.components.RoundedPanel;
 
@@ -99,7 +100,7 @@ public class VolumeView extends JPanel {
     }
 
     public void createGravityTextField() {
-        gravityTextField = new JTextField();
+        gravityTextField = new NumericTextField();
         gravityTextField.setBounds(190, 230, 80, 30);
         this.add(gravityTextField);
     }
@@ -113,7 +114,7 @@ public class VolumeView extends JPanel {
     }
 
     public void createResultTextField() {
-        resultJTextField = new JTextField();
+        resultJTextField = new NumericTextField();
         resultJTextField.setBounds(190, 270, 80, 30);
         resultJTextField.setEditable(false);
         this.add(resultJTextField);
@@ -128,7 +129,7 @@ public class VolumeView extends JPanel {
     }
 
     public void createFluidDensityTextField() {
-        fluidDensityTextField = new JTextField();
+        fluidDensityTextField = new NumericTextField();
         fluidDensityTextField.setBounds(190, 190, 80, 30);
         this.add(fluidDensityTextField);
 
@@ -143,7 +144,7 @@ public class VolumeView extends JPanel {
     }
 
     public void createPushJTextField() {
-        pushTextField = new JTextField();
+        pushTextField = new NumericTextField();
         pushTextField.setBounds(190, 150, 80, 30);
         this.add(pushTextField);
     }

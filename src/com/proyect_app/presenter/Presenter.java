@@ -72,6 +72,9 @@ public class Presenter implements ActionListener {
             case "twoOption":
                 view.createPanelWeightFormula(this);
                 break;
+            case "Home":
+                view.createPanelMainWindow(this);
+                break;
             case "E":
                 view.createPanelPush(this);
             break;
@@ -105,10 +108,10 @@ public class Presenter implements ActionListener {
             case "CalcularEmPeso":
                 view.getPanelPushWeight().showResult(calculatePushWeightForce());
             break;
-            case "Volver":
+            case "VolverFSDenVol":
                 view.createPanelFormulaSelection(this);
             break;
-            case "VolverDos":
+            case "VolverFSWeight":
                 view.createPanelWeightFormula(this);
             break;
             case "EWeight":

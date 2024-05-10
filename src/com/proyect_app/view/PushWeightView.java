@@ -1,5 +1,6 @@
 package com.proyect_app.view;
 
+import com.proyect_app.view.components.NumericTextField;
 import com.proyect_app.view.components.RoundedButton;
 import com.proyect_app.view.components.RoundedPanel;
 
@@ -91,7 +92,7 @@ public class PushWeightView extends JPanel {
     }
 
     public void createApparentWeightJTextField() {
-        apparentWeightJTextField = new JTextField();
+        apparentWeightJTextField = new NumericTextField();
         apparentWeightJTextField.setBounds(190, 205, 80, 30);
         this.add(apparentWeightJTextField );
     }
@@ -105,7 +106,7 @@ public class PushWeightView extends JPanel {
     }
 
     public void createResultTextField() {
-        resultJTextField = new JTextField();
+        resultJTextField = new NumericTextField();
         resultJTextField.setBounds(190, 245, 80, 30);
         resultJTextField.setEditable(false);
         this.add(resultJTextField);
@@ -120,7 +121,7 @@ public class PushWeightView extends JPanel {
     }
 
     public void createWeightJTextField() {
-        weightJTextField = new JTextField();
+        weightJTextField = new NumericTextField();
         weightJTextField.setBounds(190, 165, 80, 30);
         this.add(weightJTextField);
 
