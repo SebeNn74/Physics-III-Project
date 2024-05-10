@@ -181,7 +181,7 @@ public class PushView extends JPanel {
     public void createGravityLabel() {
         gravityLabel = new JLabel("g");
         gravityLabel.setBounds(410, 200, 20, 30);
-        gravityLabel.setFont(new Font("century", Font.BOLD, 14));
+        gravityLabel.setFont(new Font("Arial", Font.BOLD, 14));
         gravityLabel.setForeground(new Color(39, 76, 119));
         this.add(gravityLabel);
     }
@@ -196,7 +196,7 @@ public class PushView extends JPanel {
     public void createResultLabel() {
         resultJLabel = new JLabel("Resultado");
         resultJLabel.setBounds(410, 240, 90, 30);
-        resultJLabel.setFont(new Font("century", Font.BOLD, 14));
+        resultJLabel.setFont(new Font("Arial", Font.BOLD, 14));
         resultJLabel.setForeground(new Color(39, 76, 119));
         this.add(resultJLabel);
     }
@@ -211,7 +211,7 @@ public class PushView extends JPanel {
     public void createFluidDensityTLabel() {
         fluidDensityLabel = new JLabel("pf");
         fluidDensityLabel.setBounds(410, 160, 20, 30);
-        fluidDensityLabel.setFont(new Font("century", Font.BOLD, 14));
+        fluidDensityLabel.setFont(new Font("Arial", Font.BOLD, 14));
         fluidDensityLabel.setForeground(new Color(39, 76, 119));
         this.add(fluidDensityLabel);
     }
@@ -225,7 +225,7 @@ public class PushView extends JPanel {
     public void createfluidVolumeLabel() {
         fluidVolumeLabel = new JLabel("Vf");
         fluidVolumeLabel.setBounds(410, 120, 20, 30);
-        fluidVolumeLabel.setFont(new Font("century", Font.BOLD, 14));
+        fluidVolumeLabel.setFont(new Font("Arial", Font.BOLD, 14));
         fluidVolumeLabel.setForeground(new Color(39, 76, 119));
         this.add(fluidVolumeLabel);
     }
@@ -237,7 +237,7 @@ public class PushView extends JPanel {
         calculatorButton.addActionListener(ac);
         calculatorButton.setActionCommand("CalcularEmp");
         calculatorButton.setBounds(480, 290, 100, 30);
-        calculatorButton.setFont(new Font("century", Font.BOLD, 18));
+        calculatorButton.setFont(new Font("Arial", Font.BOLD, 18));
         calculatorButton.setBorder(null);
         this.add(calculatorButton);
     }

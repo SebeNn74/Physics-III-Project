@@ -110,7 +110,7 @@ public class DensityView extends JPanel {
         gravityLabel = new JLabel("g");
         gravityLabel.setBounds(140, 230, 20, 30);
         gravityLabel.setForeground(new Color(39, 76, 119));
-        gravityLabel.setFont(new Font("century", Font.BOLD, 14));
+        gravityLabel.setFont(new Font("Arial", Font.BOLD, 14));
         this.add(gravityLabel);
     }
 
@@ -124,7 +124,7 @@ public class DensityView extends JPanel {
     public void createResultLabel() {
         resultJLabel = new JLabel("Resultado");
         resultJLabel.setBounds(100, 270, 90, 30);
-        resultJLabel.setFont(new Font("century", Font.BOLD, 14));
+        resultJLabel.setFont(new Font("Arial", Font.BOLD, 14));
         resultJLabel.setForeground(new Color(39, 76, 119));
         this.add(resultJLabel);
     }
@@ -139,7 +139,7 @@ public class DensityView extends JPanel {
     public void createFluidVolumeJLabel() {
         fluidVolumeLabel = new JLabel("Vf");
         fluidVolumeLabel.setBounds(140, 190, 20, 30);
-        fluidVolumeLabel.setFont(new Font("century", Font.BOLD, 14));
+        fluidVolumeLabel.setFont(new Font("Arial", Font.BOLD, 14));
         fluidVolumeLabel.setForeground(new Color(39, 76, 119));
         this.add(fluidVolumeLabel);
     }
@@ -153,7 +153,7 @@ public class DensityView extends JPanel {
     public void createPushLabel() {
         pushJLabel = new JLabel("E");
         pushJLabel.setBounds(140, 150, 20, 30);
-        pushJLabel.setFont(new Font("century", Font.BOLD, 14));
+        pushJLabel.setFont(new Font("Arial", Font.BOLD, 14));
         pushJLabel.setForeground(new Color(39, 76, 119));
         this.add(pushJLabel);
     }
@@ -164,7 +164,7 @@ public class DensityView extends JPanel {
         calculatorButton.setForeground(new Color(39, 76, 119));
         calculatorButton.addActionListener(ac);
         calculatorButton.setBounds(178, 320, 100, 30);
-        calculatorButton.setFont(new Font("century", Font.BOLD, 18));
+        calculatorButton.setFont(new Font("Arial", Font.BOLD, 18));
         calculatorButton.setBorder(null);
         calculatorButton.setActionCommand("CalcularDen");
         this.add(calculatorButton);
@@ -181,7 +181,7 @@ public class DensityView extends JPanel {
         returnButton.setForeground(new Color(39, 76, 119));
         returnButton.addActionListener(ac);
         returnButton.setBounds(38, 100, 20, 20);
-        returnButton.setFont(new Font("century", Font.BOLD, 15));
+        returnButton.setFont(new Font("Arial", Font.BOLD, 15));
         returnButton.setActionCommand("Volver");
         returnButton.setBorder(null);
         this.add(returnButton);
