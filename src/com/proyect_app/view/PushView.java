@@ -11,8 +11,8 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class PushView extends JPanel {
-    private JLabel dataFormulaLabel;
-    private JTextArea dataInfo;
+    private JLabel simulationField;
+    private JLabel formulaLabel;
     private JLabel gravityLabel;
     private JLabel fluidDensityLabel;
     private JLabel fluidVolumeLabel;
@@ -26,7 +26,9 @@ public class PushView extends JPanel {
     private JComboBox<String> comboBoxVolf;
     private JComboBox<String> comboBoxDenf;
     private JComboBox<String> comboBoxGrav;
-    private ButtonImage returnButtonImage, homeButtonImage, questionButtonImage;
+    private ButtonImage returnButtonImage;
+    private ButtonImage homeButtonImage;
+    private ButtonImage questionButtonImage;
 
     public PushView(ActionListener ac) {
         this.config();
@@ -34,7 +36,7 @@ public class PushView extends JPanel {
     }
 
     public void initComponents(ActionListener ac) {
-        createDataFormulaLabel();
+        createSimulationField();
         createFluidDensityTLabel();
         createFluidDensityTextField();
         createGravityLabel();
@@ -42,7 +44,7 @@ public class PushView extends JPanel {
         createFluidVolumeTextField();
         createfluidVolumeLabel();
         createCalculatorButton(ac);
-        createJTextAreaInfoData();
+        createFormulaLabel();
         createResultLabel();
         createResultTextField();
         createComboBoxVolf(ac);
@@ -51,14 +53,28 @@ public class PushView extends JPanel {
         createReturnButtonImage(ac);
         createHomeButtonImage(ac);
         createQuestionButtonImage(ac);
-        createPanelInfo();
-        createDataPanel();
+        createCalculatorPanel();
+        createSimulationPanel();
         
     }
 
     public void config() {
         this.setLayout(null);
         this.setBackground(new Color(39, 76, 119));
+    }
+
+    private void createCalculatorPanel() {
+        panelInfo = new RoundedPanel(35,35);
+        panelInfo.setBackground(new Color(163, 206, 241));
+        panelInfo.setBounds(400, 50, 260, 360);
+        this.add(panelInfo);
+    }
+
+    private void createSimulationPanel() {
+        dataPanel = new RoundedPanel(35,35);
+        dataPanel.setBackground(new Color(231, 236, 239));
+        dataPanel.setBounds(30, 50, 350, 360);
+        this.add(dataPanel);
     }
     
     private void createReturnButtonImage(ActionListener ac) {
@@ -124,40 +140,23 @@ public class PushView extends JPanel {
     	
     }
 
-    private void createPanelInfo() {
-        panelInfo = new RoundedPanel(35,35);
-        panelInfo.setBackground(new Color(163, 206, 241));
-        panelInfo.setBounds(400, 50, 260, 360);
-        
-        this.add(panelInfo);
+    public void createFormulaLabel() {
+        formulaLabel = new JLabel("E = Vf · pf · g");
+        formulaLabel.setFont(new Font("Arial", Font.PLAIN, 22));
+        formulaLabel.setBackground(new Color(163, 206, 241));
+        formulaLabel.setForeground(new Color(39, 76, 119));
+        formulaLabel.setBounds(465, 70, 160, 30);
+        formulaLabel.setBorder(null);
+        this.add(formulaLabel);
     }
 
-    private void createDataPanel() {
-        dataPanel = new RoundedPanel(35,35);
-        dataPanel.setBackground(new Color(231, 236, 239));
-        dataPanel.setBounds(30, 50, 350, 360);
-       
-        this.add(dataPanel);
-    }
-
-    public void createJTextAreaInfoData() {
-        dataInfo = new JTextArea("E = Vf * pf * g");
-        dataInfo.setFont(new Font("Arial", Font.BOLD, 20));
-        dataInfo.setBackground(new Color(163, 206, 241));
-        dataInfo.setForeground(new Color(39, 76, 119));
-        dataInfo.setEditable(false);
-        dataInfo.setBounds(470, 70, 150, 50);
-        dataInfo.setBorder(null);
-        this.add(dataInfo);
-    }
-
-    public void createDataFormulaLabel() {
-        dataFormulaLabel = new JLabel("Esperando datos...");
-        dataFormulaLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        dataFormulaLabel.setBorder(null);
-        dataFormulaLabel.setForeground(new Color(39, 76, 119));
-        dataFormulaLabel.setBounds(135, 230, 280, 30);
-        this.add(dataFormulaLabel);
+    public void createSimulationField() {
+        simulationField = new JLabel("Esperando datos...");
+        simulationField.setFont(new Font("Arial", Font.BOLD, 16));
+        simulationField.setBorder(null);
+        simulationField.setForeground(new Color(39, 76, 119));
+        simulationField.setBounds(135, 230, 280, 30);
+        this.add(simulationField);
     }
 
     public double gravityValue() {
@@ -172,73 +171,76 @@ public class PushView extends JPanel {
         return Double.parseDouble(fluidVolumeTextField.getText());
     }
 
+    public void createFluidVolumeTextField() {
+        fluidVolumeTextField = new NumericTextField();
+        fluidVolumeTextField.setBounds(480, 120, 90, 30);
+        fluidVolumeTextField.setFont(new Font("Arial", Font.PLAIN, 15));
+        this.add(fluidVolumeTextField);
+    }
+
+    public void createfluidVolumeLabel() {
+        fluidVolumeLabel = new JLabel("Vf");
+        fluidVolumeLabel.setBounds(430, 120, 20, 30);
+        fluidVolumeLabel.setFont(new Font("Arial", Font.BOLD, 17));
+        fluidVolumeLabel.setForeground(new Color(39, 76, 119));
+        this.add(fluidVolumeLabel);
+    }
+
+    public void createFluidDensityTextField() {
+        fluidDensityTextField = new NumericTextField();
+        fluidDensityTextField.setBounds(480, 160, 90, 30);
+        fluidDensityTextField.setFont(new Font("Arial", Font.PLAIN, 15));
+        this.add(fluidDensityTextField);
+    }
+
+    public void createFluidDensityTLabel() {
+        fluidDensityLabel = new JLabel("pf");
+        fluidDensityLabel.setBounds(430, 160, 20, 30);
+        fluidDensityLabel.setFont(new Font("Arial", Font.BOLD, 17));
+        fluidDensityLabel.setForeground(new Color(39, 76, 119));
+        this.add(fluidDensityLabel);
+    }
+
     public void createGravityTextField() {
         gravityTextField = new NumericTextField();
-        gravityTextField.setBounds(490, 200, 80, 30);
+        gravityTextField.setBounds(480, 200, 90, 30);
+        gravityTextField.setFont(new Font("Arial", Font.PLAIN, 15));
         this.add(gravityTextField);
     }
 
     public void createGravityLabel() {
         gravityLabel = new JLabel("g");
-        gravityLabel.setBounds(410, 200, 20, 30);
-        gravityLabel.setFont(new Font("Arial", Font.BOLD, 14));
+        gravityLabel.setBounds(430, 200, 20, 30);
+        gravityLabel.setFont(new Font("Arial", Font.BOLD, 17));
         gravityLabel.setForeground(new Color(39, 76, 119));
         this.add(gravityLabel);
     }
 
     public void createResultTextField() {
-        resultJTextField = new NumericTextField();
-        resultJTextField.setBounds(490, 240, 80, 30);
+        resultJTextField = new JTextField();
+        resultJTextField.setBounds(510, 240, 100, 30);
+        resultJTextField.setFont(new Font("Arial", Font.PLAIN, 15));
         resultJTextField.setEditable(false);
         this.add(resultJTextField);
     }
 
     public void createResultLabel() {
         resultJLabel = new JLabel("Resultado");
-        resultJLabel.setBounds(410, 240, 90, 30);
-        resultJLabel.setFont(new Font("Arial", Font.BOLD, 14));
+        resultJLabel.setBounds(420, 240, 90, 30);
+        resultJLabel.setFont(new Font("Arial", Font.BOLD, 17));
         resultJLabel.setForeground(new Color(39, 76, 119));
         this.add(resultJLabel);
-    }
-
-    public void createFluidDensityTextField() {
-        fluidDensityTextField = new NumericTextField();
-        fluidDensityTextField.setBounds(490, 160, 80, 30);
-        this.add(fluidDensityTextField);
-
-    }
-
-    public void createFluidDensityTLabel() {
-        fluidDensityLabel = new JLabel("pf");
-        fluidDensityLabel.setBounds(410, 160, 20, 30);
-        fluidDensityLabel.setFont(new Font("Arial", Font.BOLD, 14));
-        fluidDensityLabel.setForeground(new Color(39, 76, 119));
-        this.add(fluidDensityLabel);
-    }
-
-    public void createFluidVolumeTextField() {
-        fluidVolumeTextField = new NumericTextField();
-        fluidVolumeTextField.setBounds(490, 120, 80, 30);
-        this.add(fluidVolumeTextField);
-    }
-
-    public void createfluidVolumeLabel() {
-        fluidVolumeLabel = new JLabel("Vf");
-        fluidVolumeLabel.setBounds(410, 120, 20, 30);
-        fluidVolumeLabel.setFont(new Font("Arial", Font.BOLD, 14));
-        fluidVolumeLabel.setForeground(new Color(39, 76, 119));
-        this.add(fluidVolumeLabel);
     }
 
     public void createCalculatorButton(ActionListener ac) {
         calculatorButton = new RoundedButton("Calcular");
         calculatorButton.setBackground(new Color(231, 236, 239));
         calculatorButton.setForeground(new Color(39, 76, 119));
+        calculatorButton.setBounds(480, 290, 100, 30);
+        calculatorButton.setFont(new Font("Arial", Font.PLAIN, 18));
+        calculatorButton.setBorder(null);
         calculatorButton.addActionListener(ac);
         calculatorButton.setActionCommand("CalcularEmp");
-        calculatorButton.setBounds(480, 290, 100, 30);
-        calculatorButton.setFont(new Font("Arial", Font.BOLD, 18));
-        calculatorButton.setBorder(null);
         this.add(calculatorButton);
     }
 

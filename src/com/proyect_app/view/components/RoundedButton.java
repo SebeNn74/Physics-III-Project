@@ -1,5 +1,6 @@
 package com.proyect_app.view.components;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -24,7 +25,7 @@ public class RoundedButton extends JButton implements MouseListener {
         super(text);
         this.defaultTextColor = new Color(39, 76, 119);
         this.defaultBackground = new Color(231, 236, 239);
-        this.hoverColor = new Color(139, 140, 137);
+        this.hoverColor = new Color(210, 210, 210);
         initButton();
     }
 
@@ -56,6 +57,9 @@ public class RoundedButton extends JButton implements MouseListener {
         g2.setFont(getFont());
         g2.drawString(getText(), getWidth() / 2 - g2.getFontMetrics().stringWidth(getText()) / 2,
                 getHeight() / 2 + g2.getFontMetrics().getAscent() / 2 - 2);
+        g2.setColor(new Color(160, 194, 216 ));
+        g2.setStroke(new BasicStroke(2));
+        g2.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 35, 35);
         g2.dispose();
     }
 
