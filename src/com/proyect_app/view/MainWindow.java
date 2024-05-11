@@ -3,7 +3,6 @@ package com.proyect_app.view;
 import javax.swing.*;
 
 import com.proyect_app.view.components.ButtonImage;
-import com.proyect_app.view.components.CircleButton;
 import com.proyect_app.view.components.RoundedButton;
 import com.proyect_app.view.components.RoundedPanel;
 
