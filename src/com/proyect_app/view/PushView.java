@@ -11,7 +11,8 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class PushView extends JPanel {
-    private JLabel simulationField;
+
+    private JLabel simulationLabel;
     private JLabel formulaLabel;
     private JLabel gravityLabel;
     private JLabel fluidDensityLabel;
@@ -36,15 +37,15 @@ public class PushView extends JPanel {
     }
 
     public void initComponents(ActionListener ac) {
-        createSimulationField();
-        createFluidDensityTLabel();
+        createSimulationLabel();
+        createFormulaLabel();
+        createFluidDensityLabel();
         createFluidDensityTextField();
         createGravityLabel();
         createGravityTextField();
         createFluidVolumeTextField();
         createfluidVolumeLabel();
         createCalculatorButton(ac);
-        createFormulaLabel();
         createResultLabel();
         createResultTextField();
         createComboBoxVolf(ac);
@@ -55,7 +56,6 @@ public class PushView extends JPanel {
         createQuestionButtonImage(ac);
         createCalculatorPanel();
         createSimulationPanel();
-        
     }
 
     public void config() {
@@ -64,85 +64,82 @@ public class PushView extends JPanel {
     }
 
     private void createCalculatorPanel() {
-        panelInfo = new RoundedPanel(35,35);
+        panelInfo = new RoundedPanel(35, 35);
         panelInfo.setBackground(new Color(163, 206, 241));
         panelInfo.setBounds(400, 50, 260, 360);
         this.add(panelInfo);
     }
 
     private void createSimulationPanel() {
-        dataPanel = new RoundedPanel(35,35);
+        dataPanel = new RoundedPanel(35, 35);
         dataPanel.setBackground(new Color(231, 236, 239));
         dataPanel.setBounds(30, 50, 350, 360);
         this.add(dataPanel);
     }
-    
+
     private void createReturnButtonImage(ActionListener ac) {
-    	returnButtonImage = new ButtonImage("resources/boton-volver.png", 50, 50);
-    	returnButtonImage.setBounds(420, 340, 50, 50);
-    	returnButtonImage.addActionListener(ac);
-    	returnButtonImage.setActionCommand("VolverFSDenVol");
-    	returnButtonImage.setBorder(null);
-    	this.add(returnButtonImage);
-
+        returnButtonImage = new ButtonImage("resources/boton-volver.png", 50, 50);
+        returnButtonImage.setBounds(425, 340, 50, 50);
+        returnButtonImage.addActionListener(ac);
+        returnButtonImage.setActionCommand("VolverFSDenVol");
+        returnButtonImage.setBorder(null);
+        this.add(returnButtonImage);
     }
-    
+
     private void createHomeButtonImage(ActionListener ac) {
-    	homeButtonImage = new ButtonImage("resources/boton-inicio.png", 50, 50);
-    	homeButtonImage.setBounds(500, 340, 50, 50);
-    	homeButtonImage.addActionListener(ac);
-    	homeButtonImage.setActionCommand("Home");
-    	homeButtonImage.setBorder(null);
-    	this.add(homeButtonImage);
-
+        homeButtonImage = new ButtonImage("resources/boton-inicio.png", 50, 50);
+        homeButtonImage.setBounds(505, 340, 50, 50);
+        homeButtonImage.addActionListener(ac);
+        homeButtonImage.setActionCommand("Home");
+        homeButtonImage.setBorder(null);
+        this.add(homeButtonImage);
     }
-    
+
     private void createQuestionButtonImage(ActionListener ac) {
-    	questionButtonImage = new ButtonImage("resources/boton-ayuda.png", 50, 50);
-    	questionButtonImage.setBounds(580, 340, 50, 50);
-    	questionButtonImage.addActionListener(ac);
-    	questionButtonImage.setActionCommand("EMPquestionButtonImage");
-    	questionButtonImage.setBorder(null);
-    	this.add(questionButtonImage);
+        questionButtonImage = new ButtonImage("resources/boton-ayuda.png", 50, 50);
+        questionButtonImage.setBounds(585, 340, 50, 50);
+        questionButtonImage.addActionListener(ac);
+        questionButtonImage.setActionCommand("EMPquestionButtonImage");
+        questionButtonImage.setBorder(null);
+        this.add(questionButtonImage);
+    }
+
+    private void createComboBoxVolf(ActionListener ac) {
+        String[] opciones = { "Litros (L)", "Metros (m3)", "Centrimetros (cm3)" };
+        comboBoxVolf = new JComboBox<>(opciones);
+        comboBoxVolf.setBounds(580, 120, 60, 30);
+        comboBoxVolf.addActionListener(ac);
+        comboBoxVolf.setActionCommand("VolumenFCombo");
+        comboBoxVolf.setBorder(null);
+        this.add(comboBoxVolf);
 
     }
-    
-    private void createComboBoxVolf(ActionListener ac) {
-    	String[] opciones = {"Litros (L)", "Metros (m3)", "Centrimetros (cm3)"};
-    	comboBoxVolf = new JComboBox<>(opciones);
-    	comboBoxVolf.setBounds(580, 120, 60, 30);
-    	comboBoxVolf.addActionListener(ac);
-    	comboBoxVolf.setActionCommand("VolumenFCombo");
-    	comboBoxVolf.setBorder(null);
-    	this.add(comboBoxVolf);
-    	
-    }
-    
+
     private void createComboBoxDenf(ActionListener ac) {
-    	String[] opciones = {"kg/m3", "g/cm3", "g/mL"};
-    	comboBoxDenf = new JComboBox<>(opciones);
-    	comboBoxDenf.setBounds(580, 160, 60, 30);
-    	comboBoxDenf.addActionListener(ac);
-    	comboBoxDenf.setActionCommand("DensidadFCombo");
-    	comboBoxDenf.setBorder(null);
-    	this.add(comboBoxDenf);
-    	
+        String[] opciones = { "kg/m3", "g/cm3", "g/mL" };
+        comboBoxDenf = new JComboBox<>(opciones);
+        comboBoxDenf.setBounds(580, 160, 60, 30);
+        comboBoxDenf.addActionListener(ac);
+        comboBoxDenf.setActionCommand("DensidadFCombo");
+        comboBoxDenf.setBorder(null);
+        this.add(comboBoxDenf);
+
     }
-    
+
     private void createComboBoxGrav(ActionListener ac) {
-    	String[] opciones = {"m/s2", "Gal"};
-    	comboBoxGrav = new JComboBox<>(opciones);
-    	comboBoxGrav.setBounds(580, 200, 60, 30);
-    	comboBoxGrav.addActionListener(ac);
-    	comboBoxGrav.setActionCommand("GravCombo");
-    	comboBoxGrav.setBorder(null);
-    	this.add(comboBoxGrav);
-    	
+        String[] opciones = { "m/s2", "Gal" };
+        comboBoxGrav = new JComboBox<>(opciones);
+        comboBoxGrav.setBounds(580, 200, 60, 30);
+        comboBoxGrav.addActionListener(ac);
+        comboBoxGrav.setActionCommand("GravCombo");
+        comboBoxGrav.setBorder(null);
+        this.add(comboBoxGrav);
+
     }
 
     public void createFormulaLabel() {
         formulaLabel = new JLabel("E = Vf · pf · g");
-        formulaLabel.setFont(new Font("Arial", Font.PLAIN, 22));
+        formulaLabel.setFont(new Font("Arial", Font.BOLD, 22));
         formulaLabel.setBackground(new Color(163, 206, 241));
         formulaLabel.setForeground(new Color(39, 76, 119));
         formulaLabel.setBounds(465, 70, 160, 30);
@@ -150,13 +147,13 @@ public class PushView extends JPanel {
         this.add(formulaLabel);
     }
 
-    public void createSimulationField() {
-        simulationField = new JLabel("Esperando datos...");
-        simulationField.setFont(new Font("Arial", Font.BOLD, 16));
-        simulationField.setBorder(null);
-        simulationField.setForeground(new Color(39, 76, 119));
-        simulationField.setBounds(135, 230, 280, 30);
-        this.add(simulationField);
+    public void createSimulationLabel() {
+        simulationLabel = new JLabel("Esperando datos...");
+        simulationLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        simulationLabel.setBorder(null);
+        simulationLabel.setForeground(new Color(39, 76, 119));
+        simulationLabel.setBounds(135, 230, 280, 30);
+        this.add(simulationLabel);
     }
 
     public double gravityValue() {
@@ -193,7 +190,7 @@ public class PushView extends JPanel {
         this.add(fluidDensityTextField);
     }
 
-    public void createFluidDensityTLabel() {
+    public void createFluidDensityLabel() {
         fluidDensityLabel = new JLabel("pf");
         fluidDensityLabel.setBounds(430, 160, 20, 30);
         fluidDensityLabel.setFont(new Font("Arial", Font.BOLD, 17));
@@ -218,7 +215,7 @@ public class PushView extends JPanel {
 
     public void createResultTextField() {
         resultJTextField = new JTextField();
-        resultJTextField.setBounds(510, 240, 100, 30);
+        resultJTextField.setBounds(520, 240, 100, 30);
         resultJTextField.setFont(new Font("Arial", Font.PLAIN, 15));
         resultJTextField.setEditable(false);
         this.add(resultJTextField);
@@ -226,7 +223,7 @@ public class PushView extends JPanel {
 
     public void createResultLabel() {
         resultJLabel = new JLabel("Resultado");
-        resultJLabel.setBounds(420, 240, 90, 30);
+        resultJLabel.setBounds(430, 240, 90, 30);
         resultJLabel.setFont(new Font("Arial", Font.BOLD, 17));
         resultJLabel.setForeground(new Color(39, 76, 119));
         this.add(resultJLabel);

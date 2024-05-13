@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class DensityView extends JPanel {
-    private JLabel simulationField;
+    private JLabel simulationLabel;
     private JLabel formulaLabel;
     private JLabel gravityLabel;
     private JLabel fluidVolumeLabel;
@@ -33,7 +33,7 @@ public class DensityView extends JPanel {
     }
 
     public void initComponents(ActionListener ac) {
-        createSimulationField();
+        createSimulationLabel();
         createFormulaLabel();
         createFluidVolumeJLabel();
         createFluidVolumeJTextField();
@@ -72,7 +72,7 @@ public class DensityView extends JPanel {
 
     private void createReturnButtonImage(ActionListener ac) {
     	returnButtonImage = new ButtonImage("resources/boton-volver.png", 50, 50);
-    	returnButtonImage.setBounds(420, 340, 50, 50);
+    	returnButtonImage.setBounds(425, 340, 50, 50);
     	returnButtonImage.addActionListener(ac);
     	returnButtonImage.setActionCommand("VolverFSDenVol");
     	returnButtonImage.setBorder(null);
@@ -82,7 +82,7 @@ public class DensityView extends JPanel {
     
     private void createHomeButtonImage(ActionListener ac) {
     	homeButtonImage = new ButtonImage("resources/boton-inicio.png", 50, 50);
-    	homeButtonImage.setBounds(500, 340, 50, 50);
+    	homeButtonImage.setBounds(505, 340, 50, 50);
     	homeButtonImage.addActionListener(ac);
     	homeButtonImage.setActionCommand("Home");
     	homeButtonImage.setBorder(null);
@@ -92,7 +92,7 @@ public class DensityView extends JPanel {
     
     private void createQuestionButtonImage(ActionListener ac) {
     	questionButtonImage = new ButtonImage("resources/boton-ayuda.png", 50, 50);
-    	questionButtonImage.setBounds(580, 340, 50, 50);
+    	questionButtonImage.setBounds(585, 340, 50, 50);
     	questionButtonImage.addActionListener(ac);
     	questionButtonImage.setActionCommand("EMPquestionButtonImage");
     	questionButtonImage.setBorder(null);
@@ -102,8 +102,8 @@ public class DensityView extends JPanel {
     
 
     public void createFormulaLabel() {
-        formulaLabel = new JLabel("pf = E/(Vf · g)");
-        formulaLabel.setFont(new Font("Arial", Font.PLAIN, 22));
+        formulaLabel = new JLabel("pf = E / (Vf · g)");
+        formulaLabel.setFont(new Font("Arial", Font.BOLD, 22));
         formulaLabel.setBackground(new Color(163, 206, 241));
         formulaLabel.setForeground(new Color(39, 76, 119));
         formulaLabel.setBounds(465, 70, 160, 30);
@@ -111,13 +111,13 @@ public class DensityView extends JPanel {
         this.add(formulaLabel);
     }
 
-    public void createSimulationField() {
-        simulationField = new JLabel("Esperando datos...");
-        simulationField.setFont(new Font("Arial", Font.BOLD, 16));
-        simulationField.setBorder(null);
-        simulationField.setForeground(new Color(39, 76, 119));
-        simulationField.setBounds(135, 230, 280, 30);
-        this.add(simulationField);
+    public void createSimulationLabel() {
+        simulationLabel = new JLabel("Esperando datos...");
+        simulationLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        simulationLabel.setBorder(null);
+        simulationLabel.setForeground(new Color(39, 76, 119));
+        simulationLabel.setBounds(135, 230, 280, 30);
+        this.add(simulationLabel);
     }
 
     public double gravityValue() {

@@ -73,34 +73,34 @@ public class FormulaSelectionWeight extends JPanel {
         this.add(infoFormula);
     }
 
+    public void createPushButton(ActionListener ac) {
+        pushJButton = new RoundedButton("E : Empuje");
+        pushJButton.setFont(new Font("Arial", Font.BOLD, 20));
+        pushJButton.setBounds(200, 190, 280, 37);
+        pushJButton.setBorder(null);
+        pushJButton.addActionListener(ac);
+        pushJButton.setActionCommand("EWeight");
+        this.add(pushJButton);
+    }
+
     public void createWeightJButton(ActionListener ac) {
         weightJButton = new RoundedButton("W : Peso del objeto");
-        weightJButton.addActionListener(ac);
         weightJButton.setFont(new Font("Arial", Font.BOLD, 22));
         weightJButton.setBounds(200, 240, 280, 37);
         weightJButton.setBorder(null);
+        weightJButton.addActionListener(ac);
+        weightJButton.setActionCommand("W");
         this.add(weightJButton);
     }
 
     public void createApparentWeightJButton(ActionListener ac) {
         apparentWeightJButton = new RoundedButton("Wa : Peso aparente");
-        apparentWeightJButton.addActionListener(ac);
         apparentWeightJButton.setFont(new Font("Arial", Font.BOLD, 22));
         apparentWeightJButton.setBounds(200, 290, 280, 37);
-        ;
         apparentWeightJButton.setBorder(null);
+        apparentWeightJButton.addActionListener(ac);
+        apparentWeightJButton.setActionCommand("Wa");
         this.add(apparentWeightJButton);
-    }
-
-    public void createPushButton(ActionListener ac) {
-        pushJButton = new RoundedButton("E : Empuje");
-        pushJButton.addActionListener(ac);
-        pushJButton.setFont(new Font("Arial", Font.BOLD, 20));
-        pushJButton.setBounds(200, 190, 280, 37);
-        ;
-        pushJButton.setBorder(null);
-        pushJButton.setActionCommand("EWeight");
-        this.add(pushJButton);
     }
 
 }

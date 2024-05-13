@@ -47,27 +47,30 @@ public class Presenter implements ActionListener {
         double push = view.getPanelGravity().pushValue();
         return model.calculateGravityForce(density, volume, push);
     }
-    public double calculatePushWeightForce( ) {
-        double weight= view.getPanelPushWeight().weightValue();
+
+    public double calculatePushWeightForce() {
+        double weight = view.getPanelPushWeight().weightValue();
         double apparentWeight = view.getPanelPushWeight().apparentWeightValue();
-        return model.calculatePushWeightForce(weight,apparentWeight);
+        return model.calculatePushWeightForce(weight, apparentWeight);
     }
-    public double calculateWeight( ) {
-       double push=view.getPanelWeight().pushValue();
-       double apparentWeight=view.getPanelPushWeight().apparentWeightValue();
-       return model.calculateWeight(push,apparentWeight);
+
+    public double calculateWeight() {
+        double push = view.getPanelWeight().pushValue();
+        double apparentWeight = view.getPanelPushWeight().apparentWeightValue();
+        return model.calculateWeight(push, apparentWeight);
     }
+
     public double calculateApparenWeight() {
-        double push=view.getPanelApparentWeight().pushValue();
-        double weight=view.getPanelApparentWeight().weightValue();
-        return model.calculateApparenWeight(push,weight);
+        double push = view.getPanelApparentWeight().pushValue();
+        double weight = view.getPanelApparentWeight().weightValue();
+        return model.calculateApparenWeight(push, weight);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "oneOption":
-            view.createPanelFormulaSelection(this);
+                view.createPanelFormulaSelection(this);
                 break;
             case "twoOption":
                 view.createPanelWeightFormula(this);
@@ -77,52 +80,52 @@ public class Presenter implements ActionListener {
                 break;
             case "E":
                 view.createPanelPush(this);
-            break;
+                break;
             case "Vf":
                 view.createPanelVolume(this);
-            break;
+                break;
             case "g":
                 view.createPanelGravity(this);
-            break;
+                break;
             case "pf":
                 view.createPanelDensity(this);
-            break;
+                break;
             case "CalcularEmp":
                 view.getPanelPush().showResult(pushForce());
-            break;
+                break;
             case "CalcularGrav":
                 view.getPanelGravity().showResult(gravityForce());
-            break;
+                break;
             case "CalcularVol":
                 view.getPanelVolume().showResult(volume());
-            break;
+                break;
             case "CalcularDen":
                 view.getPanelDensity().showResult(density());
-            break;
+                break;
+            case "CalcularEmpPeso":
+                view.getPanelPushWeight().showResult(calculatePushWeightForce());
+                break;
             case "CalcularPeso":
                 view.getPanelWeight().showResult(calculateWeight());
-            break;
+                break;
             case "CalcularPesoAp":
                 view.getPanelApparentWeight().showResult(calculateApparenWeight());
-            break;
-            case "CalcularEmPeso":
-                view.getPanelPushWeight().showResult(calculatePushWeightForce());
-            break;
+                break;
             case "VolverFSDenVol":
                 view.createPanelFormulaSelection(this);
-            break;
+                break;
             case "VolverFSWeight":
                 view.createPanelWeightFormula(this);
-            break;
+                break;
             case "EWeight":
                 view.createPanelPushWeight(this);
-            break;
+                break;
             case "W":
                 view.createPanelWeight(this);
-            break;
+                break;
             case "Wa":
                 view.createPanelApparentWeight(this);
-            break;
+                break;
             default:
                 break;
         }
