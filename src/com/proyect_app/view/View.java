@@ -18,6 +18,11 @@ public class View extends JFrame {
     private WeightView panelWeight;
     private ApparentWeightView panelApparentWeight;
     private JPanel panel;
+    private FormulaDialog dialog;
+    private FormulaWeightDialog wdialog;
+    private DocumentDialog docDialog;
+    private AppDocumentDialog appDocDialog;
+    private ArqDocumentDialog arqDocumentDialog;
 
     public View(Presenter ac) {
         this.setUpFrame();
@@ -58,7 +63,9 @@ public class View extends JFrame {
         panel.revalidate();
         panel.repaint();
         repaint();
-    } public void createPanelApparentWeight(Presenter ac) {
+    } 
+    
+    public void createPanelApparentWeight(Presenter ac) {
         setPanel();
         panelApparentWeight = new ApparentWeightView(ac);
         panel.add(panelApparentWeight);
@@ -75,6 +82,7 @@ public class View extends JFrame {
         panel.repaint();
         repaint();
     }
+    
     public void createPanelPushWeight(Presenter ac) {
         setPanel();
         panelPushWeight = new PushWeightView(ac);
@@ -83,6 +91,7 @@ public class View extends JFrame {
         panel.repaint();
         repaint();
     }
+    
     public void createPanelWeightFormula(Presenter ac) {
         setPanel();
         panelWeightFormula = new FormulaSelectionWeight(ac);
@@ -214,4 +223,25 @@ public class View extends JFrame {
     public ApparentWeightView getPanelApparentWeight() {
         return panelApparentWeight;
     }
+
+    public void createFormulaDialog(Presenter ac){
+        dialog = new FormulaDialog();
+    }
+
+    public void createWeightFormulaDialog(Presenter ac){
+        wdialog = new FormulaWeightDialog();
+    }
+
+    public void createDocumentDialog(Presenter ac){
+        docDialog = new DocumentDialog(ac);
+    }
+
+    public void createAppDocumentDialog(Presenter ac){
+        appDocDialog = new AppDocumentDialog();
+    }
+
+    public void createArqDocumentDialog(Presenter ac){
+        arqDocumentDialog = new ArqDocumentDialog();
+    }
+
 }

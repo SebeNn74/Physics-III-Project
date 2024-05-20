@@ -23,16 +23,16 @@ public class PushView extends JPanel {
     private JTextField fluidDensityTextField;
     private JTextField fluidVolumeTextField;
     private RoundedButton calculatorButton;
-    private RoundedPanel panelInfo, dataPanel;
-    private JComboBox<String> comboBoxVolf;
-    private JComboBox<String> comboBoxDenf;
-    private JComboBox<String> comboBoxGrav;
+    private RoundedPanel calculatorPanel, simulatorPanel;
     private ButtonImage returnButtonImage;
     private ButtonImage homeButtonImage;
     private ButtonImage questionButtonImage;
+    private AnimationPanel animationPanel;
+    private int animationRunning;
 
     public PushView(ActionListener ac) {
         this.config();
+        animationRunning = 0;
         initComponents(ac);
     }
 
@@ -48,14 +48,12 @@ public class PushView extends JPanel {
         createCalculatorButton(ac);
         createResultLabel();
         createResultTextField();
-        createComboBoxVolf(ac);
-        createComboBoxDenf(ac);
-        createComboBoxGrav(ac);
         createReturnButtonImage(ac);
         createHomeButtonImage(ac);
         createQuestionButtonImage(ac);
         createCalculatorPanel();
         createSimulationPanel();
+        createAnimationPanel("resources/FlotacionTotal.mp4");
     }
 
     public void config() {
@@ -64,17 +62,17 @@ public class PushView extends JPanel {
     }
 
     private void createCalculatorPanel() {
-        panelInfo = new RoundedPanel(35, 35);
-        panelInfo.setBackground(new Color(163, 206, 241));
-        panelInfo.setBounds(400, 50, 260, 360);
-        this.add(panelInfo);
+        calculatorPanel = new RoundedPanel(35, 35);
+        calculatorPanel.setBackground(new Color(163, 206, 241));
+        calculatorPanel.setBounds(400, 50, 260, 360);
+        this.add(calculatorPanel);
     }
 
     private void createSimulationPanel() {
-        dataPanel = new RoundedPanel(35, 35);
-        dataPanel.setBackground(new Color(231, 236, 239));
-        dataPanel.setBounds(30, 50, 350, 360);
-        this.add(dataPanel);
+        simulatorPanel = new RoundedPanel(35, 35);
+        simulatorPanel.setBackground(new Color(231, 236, 239));
+        simulatorPanel.setBounds(30, 50, 350, 360);
+        this.add(simulatorPanel);
     }
 
     private void createReturnButtonImage(ActionListener ac) {
@@ -99,42 +97,9 @@ public class PushView extends JPanel {
         questionButtonImage = new ButtonImage("resources/boton-ayuda.png", 50, 50);
         questionButtonImage.setBounds(585, 340, 50, 50);
         questionButtonImage.addActionListener(ac);
-        questionButtonImage.setActionCommand("EMPquestionButtonImage");
+        questionButtonImage.setActionCommand("PUSHquestionButtonImage");
         questionButtonImage.setBorder(null);
         this.add(questionButtonImage);
-    }
-
-    private void createComboBoxVolf(ActionListener ac) {
-        String[] opciones = { "Litros (L)", "Metros (m3)", "Centrimetros (cm3)" };
-        comboBoxVolf = new JComboBox<>(opciones);
-        comboBoxVolf.setBounds(580, 120, 60, 30);
-        comboBoxVolf.addActionListener(ac);
-        comboBoxVolf.setActionCommand("VolumenFCombo");
-        comboBoxVolf.setBorder(null);
-        this.add(comboBoxVolf);
-
-    }
-
-    private void createComboBoxDenf(ActionListener ac) {
-        String[] opciones = { "kg/m3", "g/cm3", "g/mL" };
-        comboBoxDenf = new JComboBox<>(opciones);
-        comboBoxDenf.setBounds(580, 160, 60, 30);
-        comboBoxDenf.addActionListener(ac);
-        comboBoxDenf.setActionCommand("DensidadFCombo");
-        comboBoxDenf.setBorder(null);
-        this.add(comboBoxDenf);
-
-    }
-
-    private void createComboBoxGrav(ActionListener ac) {
-        String[] opciones = { "m/s2", "Gal" };
-        comboBoxGrav = new JComboBox<>(opciones);
-        comboBoxGrav.setBounds(580, 200, 60, 30);
-        comboBoxGrav.addActionListener(ac);
-        comboBoxGrav.setActionCommand("GravCombo");
-        comboBoxGrav.setBorder(null);
-        this.add(comboBoxGrav);
-
     }
 
     public void createFormulaLabel() {
@@ -154,6 +119,46 @@ public class PushView extends JPanel {
         simulationLabel.setForeground(new Color(39, 76, 119));
         simulationLabel.setBounds(135, 230, 280, 30);
         this.add(simulationLabel);
+    }
+
+    private void createAnimationPanel(String videoPath) {
+        animationPanel = new AnimationPanel(videoPath);
+        animationPanel.setBounds(55, 20, 265, 350);
+    }
+
+    public void cargeAnimation(int type) {
+        simulationLabel.setVisible(false);
+        switch (type) {
+            case 1:
+                if (animationRunning == 0) {
+                    animationPanel.playVideo();
+                    simulatorPanel.add(animationPanel);
+                    animationRunning = 1;
+                } else {
+                    animationPanel.changeVideo("resources/FlotacionTotal.mp4");
+                }
+                break;
+            case 2:
+                if (animationRunning == 0) {
+                    animationPanel.changeVideo("resources/FlotacionParcial.mp4");
+                    simulatorPanel.add(animationPanel);
+                    animationRunning = 2;
+                } else {
+                    animationPanel.changeVideo("resources/FlotacionParcial.mp4");
+                }
+                break;
+            case 3:
+                if (animationRunning == 0) {
+                    animationPanel.changeVideo("resources/Hundimiento.mp4");
+                    simulatorPanel.add(animationPanel);
+                    animationRunning = 3;
+                } else {
+                    animationPanel.changeVideo("resources/Hundimiento.mp4");
+                }
+                break;
+            default:
+                return;
+        }
     }
 
     public double gravityValue() {

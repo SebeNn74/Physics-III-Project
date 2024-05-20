@@ -57,7 +57,7 @@ public class FormulaSelectionWeight extends JPanel {
     	questionButtonImage = new ButtonImage("resources/boton-ayuda.png", 50, 50);
     	questionButtonImage.setBounds(520, 80, 50, 50);
     	questionButtonImage.addActionListener(ac);
-    	questionButtonImage.setActionCommand("EMPquestionButtonImage");
+    	questionButtonImage.setActionCommand("FORM1questionButtonImage");
     	questionButtonImage.setBorder(null);
     	this.add(questionButtonImage);
     }
