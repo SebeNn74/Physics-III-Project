@@ -27,6 +27,14 @@ public class Presenter implements ActionListener {
         return model.calculatePushForce(density, volume, gravity);
     }
 
+    public int typeAnimation(){
+        double density = view.getPanelPush().densityValue();
+        double volume = view.getPanelPush().volumeValue();
+        double gravity = view.getPanelPush().gravityValue();
+        
+        return 0;
+    }
+
     public double volume() {
         double density = view.getPanelVolume().densityValue();
         double push = view.getPanelVolume().pushValue();
@@ -92,24 +100,31 @@ public class Presenter implements ActionListener {
                 break;
             case "CalcularEmp":
                 view.getPanelPush().showResult(pushForce());
+                view.getPanelPush().cargeAnimation("1");
                 break;
             case "CalcularGrav":
                 view.getPanelGravity().showResult(gravityForce());
+                view.getPanelGravity().cargeAnimation("1");
                 break;
             case "CalcularVol":
                 view.getPanelVolume().showResult(volume());
+                view.getPanelVolume().cargeAnimation("1");
                 break;
             case "CalcularDen":
                 view.getPanelDensity().showResult(density());
+                view.getPanelDensity().cargeAnimation("1");
                 break;
             case "CalcularEmpPeso":
                 view.getPanelPushWeight().showResult(calculatePushWeightForce());
+                view.getPanelPushWeight().cargeAnimation("1");
                 break;
             case "CalcularPeso":
                 view.getPanelWeight().showResult(calculateWeight());
+                view.getPanelWeight().cargeAnimation("1");
                 break;
             case "CalcularPesoAp":
                 view.getPanelApparentWeight().showResult(calculateApparenWeight());
+                view.getPanelApparentWeight().cargeAnimation("1");
                 break;
             case "VolverFSDenVol":
                 view.createPanelFormulaSelection(this);
@@ -125,6 +140,42 @@ public class Presenter implements ActionListener {
                 break;
             case "Wa":
                 view.createPanelApparentWeight(this);
+                break;
+            case "DENquestionButtonImage":
+                view.createFormulaDialog(this);
+                break;
+            case "GRAquestionButtonImage":
+                view.createFormulaDialog(this);
+                break;
+            case "PUSHquestionButtonImage":
+                view.createFormulaDialog(this);
+                break;
+            case "VOLquestionButtonImage":
+                view.createFormulaDialog(this);
+                break;
+            case "APWquestionButtonImage":
+                view.createWeightFormulaDialog(this);
+                break;
+            case "EMPWquestionButtonImage":
+                view.createWeightFormulaDialog(this);
+                break;
+            case "WEquestionButtonImage":
+                view.createWeightFormulaDialog(this);
+                break;
+            case "questionButtonImage":
+                view.createDocumentDialog(this);
+                break;
+            case "APPBUTTON":
+                view.createAppDocumentDialog(this);
+                break;
+            case "DOCBUTTON":
+                view.createArqDocumentDialog(this);
+                break;
+            case "FORM2questionButtonImage":
+                view.createDocumentDialog(this);
+                break;
+            case "FORM1questionButtonImage":
+                view.createDocumentDialog(this);
                 break;
             default:
                 break;

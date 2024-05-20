@@ -2,10 +2,6 @@ package com.proyect_app.model;
 
 public class Model {
 
-    public Model() {
-
-    }
-
     public double calculatePushForce(double density, double volume, double gravity) {
         return density * volume * gravity;
     }
@@ -33,4 +29,7 @@ public class Model {
     public double calculateApparenWeight( double push, double weight) {
         return weight-push;
     }
+
+    
+
 }

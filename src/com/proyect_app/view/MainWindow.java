@@ -90,7 +90,7 @@ public class MainWindow extends JPanel {
     	questionButtonImage = new ButtonImage("resources/boton-ayuda-claro.png", 50, 50);
     	questionButtonImage.setBounds(610, 30, 50, 50);
     	questionButtonImage.addActionListener(ac);
-    	questionButtonImage.setActionCommand("EMPquestionButtonImage");
+    	questionButtonImage.setActionCommand("questionButtonImage");
     	questionButtonImage.setBorder(null);
     	this.add(questionButtonImage);
     }
