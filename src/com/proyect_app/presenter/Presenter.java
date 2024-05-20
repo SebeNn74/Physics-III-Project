@@ -5,6 +5,7 @@ import com.proyect_app.view.View;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class Presenter implements ActionListener {
     private View view;
@@ -100,31 +101,31 @@ public class Presenter implements ActionListener {
                 break;
             case "CalcularEmp":
                 view.getPanelPush().showResult(pushForce());
-                view.getPanelPush().cargeAnimation("1");
+                view.getPanelPush().cargeAnimation((int)((Math.random() * 2) + 1));
                 break;
             case "CalcularGrav":
                 view.getPanelGravity().showResult(gravityForce());
-                view.getPanelGravity().cargeAnimation("1");
+                view.getPanelGravity().cargeAnimation((int)((Math.random() * 2) + 1));
                 break;
             case "CalcularVol":
                 view.getPanelVolume().showResult(volume());
-                view.getPanelVolume().cargeAnimation("1");
+                view.getPanelVolume().cargeAnimation((int)((Math.random() * 2) + 1));
                 break;
             case "CalcularDen":
                 view.getPanelDensity().showResult(density());
-                view.getPanelDensity().cargeAnimation("1");
+                view.getPanelDensity().cargeAnimation((int)((Math.random() * 2) + 1));
                 break;
             case "CalcularEmpPeso":
                 view.getPanelPushWeight().showResult(calculatePushWeightForce());
-                view.getPanelPushWeight().cargeAnimation("1");
+                view.getPanelPushWeight().cargeAnimation((int)((Math.random() * 2) + 1));
                 break;
             case "CalcularPeso":
                 view.getPanelWeight().showResult(calculateWeight());
-                view.getPanelWeight().cargeAnimation("1");
+                view.getPanelWeight().cargeAnimation((int)((Math.random() * 2) + 1));
                 break;
             case "CalcularPesoAp":
                 view.getPanelApparentWeight().showResult(calculateApparenWeight());
-                view.getPanelApparentWeight().cargeAnimation("1");
+                view.getPanelApparentWeight().cargeAnimation((int)((Math.random() * 2) + 1));
                 break;
             case "VolverFSDenVol":
                 view.createPanelFormulaSelection(this);

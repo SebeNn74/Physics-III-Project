@@ -126,10 +126,10 @@ public class GravityView extends JPanel {
         animationPanel.setBounds(55, 20, 265, 350);
     }
 
-    public void cargeAnimation(String type) {
+    public void cargeAnimation(int type) {
         simulationLabel.setVisible(false);
         switch (type) {
-            case "1":
+            case 1:
                 if (animationRunning == 0) {
                     animationPanel.playVideo();
                     simulatorPanel.add(animationPanel);
@@ -138,7 +138,7 @@ public class GravityView extends JPanel {
                     animationPanel.changeVideo("resources/FlotacionTotal.mp4");
                 }
                 break;
-            case "2":
+            case 2:
                 if (animationRunning == 0) {
                     animationPanel.changeVideo("resources/FlotacionParcial.mp4");
                     simulatorPanel.add(animationPanel);
@@ -147,7 +147,7 @@ public class GravityView extends JPanel {
                     animationPanel.changeVideo("resources/FlotacionParcial.mp4");
                 }
                 break;
-            case "3":
+            case 3:
                 if (animationRunning == 0) {
                     animationPanel.changeVideo("resources/Hundimiento.mp4");
                     simulatorPanel.add(animationPanel);
